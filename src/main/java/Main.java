@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class main {
+public class Main {
 
     public static void main(String[] args) {
         Organiser organiser = new Organiser("mmollevik@hotmail.com", "admin", "Magnus", "Mollevik");
