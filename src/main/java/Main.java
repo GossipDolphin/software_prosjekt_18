@@ -12,5 +12,4 @@ public class Main {
         racelist.add(new Race("kek3", LocalDateTime.now(), LocalDateTime.now()));
 
         organiser.leggTilArrangement("KekLøpForAlle", LocalDateTime.now(), LocalDateTime.now(), "Halden", organiser, racelist);
-    }
-}
+    }}
