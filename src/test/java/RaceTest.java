@@ -1,6 +1,5 @@
 import org.testng.annotations.Test;
 
 @Test
-public class brukerTest {
-
+public class RaceTest {
 }
