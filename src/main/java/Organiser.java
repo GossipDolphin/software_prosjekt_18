@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 public class Organiser extends Bruker{
 
-
     public Organiser(String email, String password, String navn_f, String navn_e) {
         super(email, password, navn_f, navn_e);
     }
