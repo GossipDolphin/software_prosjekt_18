@@ -1,0 +1,32 @@
+ @startuml
+left to right direction
+skinparam packageStyle rectangle
+
+rectangle arrangement {
+:Arrangør:
+note bottom of Arrangør
+    En bruker er arrangør for
+    arrangementet den oppretter
+end note
+
+Arrangør -- (Se liste med løp)
+Arrangør -up- (Redigere løp)
+Arrangør -up- (Opprette løp)
+Arrangør -up- (Tildele brukere arrangør-status)
+Arrangør -- (Se deltakere)
+Arrangør -- (Invitere brukere)
+Arrangør -- (Se lokasjon)
+Arrangør -- (Se beskrivelse)
+Arrangør -up- (Redigere arrangement)
+
+
+:Bruker:
+
+(Se deltakere) -- Bruker
+(Invitere brukere) -- Bruker
+(Se liste med løp) -- Bruker
+(Se beskrivelse) -- Bruker
+(Melde seg på løp) -- Bruker
+(Se lokasjon) -- Bruker
+}
+ @enduml
