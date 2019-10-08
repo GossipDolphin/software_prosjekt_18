@@ -1,0 +1,22 @@
+
+@startuml
+
+
+:Bruker:
+left to right direction
+Bruker -- (Opprette brukerkonto)
+Bruker -- (Redigere brukerkonto)
+Bruker -- (Logge inn)
+Bruker -- (Finne arrangementer)
+Bruker -- (Melde seg på arrangementer)
+Bruker -- (Opprette arrangementer)
+
+
+:Admin:
+(Opprette brukerkonto) -- Admin
+(Redigere brukerkonto) -- Admin
+(Logge inn) -- Admin
+(Finne arrangementer) -- Admin
+
+
+@enduml
