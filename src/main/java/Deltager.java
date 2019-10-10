@@ -2,10 +2,11 @@ import java.util.ArrayList;
 
 public class Deltager extends Bruker{
 
-    private ArrayList<Arrangement> listeMedArrangementer = new ArrayList<>();
+    private ArrayList<Arrangement> listeMedArrangementer;
 
-    public Deltager(String email, String password, String navn_f, String navn_e) {
+    public Deltager(String email, String password, String navn_f, String navn_e, ArrayList<Arrangement> listeMedArrangementer) {
         super(email, password, navn_f, navn_e);
+        this.listeMedArrangementer = listeMedArrangementer;
     }
 
 
@@ -28,4 +29,29 @@ public class Deltager extends Bruker{
     }
 
 
+    public Race meldMegPaaRaceIArrangement(Arrangement arrangement, Race race) {
+        Race racetSomSkalReturners = null;
+        for (Race racet : arrangement.getRaceList()){
+            if (racet.equals(race)){
+                race.getDeltagere().add(this);
+                racetSomSkalReturners = racet;
+            }
+        }
+        return racetSomSkalReturners;
+    }
+
+    public ArrayList<Race> hentMineRace() {
+        ArrayList<Race> mineRace = new ArrayList<>();
+
+        for (Arrangement arrangement : this.HentDeArrangementerJegErMedI()){
+            for (Race race : arrangement.getRaceList()){
+                for (Deltager deltager : race.getDeltagere()){
+                    if (this.getEmail().equals(deltager.getEmail())){
+                        mineRace.add(race);
+                    }
+                }
+            }
+        }
+        return mineRace;
+    }
 }

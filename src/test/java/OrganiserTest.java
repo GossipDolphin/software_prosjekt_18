@@ -30,7 +30,8 @@ public class OrganiserTest {
     public void test_legg_til_race_i_arrangement() {
         Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser, racelist, listeMedDeltagere);
         organiser.leggTilArrangementIListen(arrangement);
-        Race race = new Race("race number one", LocalDateTime.now(), LocalDateTime.now());
+        ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
+        Race race = new Race("race number one", LocalDateTime.now(), LocalDateTime.now(), listeMedDeltagere);
         assertEquals(race.toString() ,organiser.leggTilRaceIArrangement(arrangement, race).toString());
     }
 

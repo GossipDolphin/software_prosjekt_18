@@ -7,10 +7,11 @@ public class Race {
     private LocalDateTime raceSlutt;
     private ArrayList<Deltager> deltagere;
 
-    Race(String raceNavn, LocalDateTime raceStart, LocalDateTime raceSlutt) {
+    Race(String raceNavn, LocalDateTime raceStart, LocalDateTime raceSlutt, ArrayList<Deltager> deltagere) {
         this.raceNavn = raceNavn;
         this.raceStart = raceStart;
         this.raceSlutt = raceSlutt;
+        this.deltagere = deltagere;
     }
 
     @Override
