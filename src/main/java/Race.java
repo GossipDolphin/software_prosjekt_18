@@ -5,7 +5,7 @@ public class Race {
     private String raceNavn;
     private LocalDateTime raceStart;
     private LocalDateTime raceSlutt;
-    private ArrayList<Deltagere> deltagere;
+    private ArrayList<Deltager> deltagere;
 
     Race(String raceNavn, LocalDateTime raceStart, LocalDateTime raceSlutt) {
         this.raceNavn = raceNavn;
@@ -42,11 +42,11 @@ public class Race {
         this.raceSlutt = raceSlutt;
     }
 
-    public ArrayList<Deltagere> getDeltagere() {
+    public ArrayList<Deltager> getDeltagere() {
         return deltagere;
     }
 
-    public void setDeltagere(ArrayList<Deltagere> deltagere) {
+    public void setDeltagere(ArrayList<Deltager> deltagere) {
         this.deltagere = deltagere;
     }
 }

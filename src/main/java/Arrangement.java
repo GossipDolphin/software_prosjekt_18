@@ -9,14 +9,16 @@ public class Arrangement {
     private String arrangementLokasjon;
     private Organiser organiser;
     private ArrayList<Race> raceList;
+    private ArrayList<Deltager> listeMedDeltagere;
 
-    Arrangement(String arrangementNavn, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList) {
+    Arrangement(String arrangementNavn, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList, ArrayList<Deltager> listeMedDeltagere) {
         this.arrangementNavn = arrangementNavn;
         this.arrangementStartDate = arrangementStartDate;
         this.arrangementSluttDate = arrangementSluttDate;
         this.arrangementLokasjon = arrangementLokasjon;
         this.organiser = organiser;
         this.raceList = raceList;
+        this.listeMedDeltagere = listeMedDeltagere;
     }
 
     @Override
@@ -70,5 +72,13 @@ public class Arrangement {
 
     public void setRaceList(ArrayList<Race> raceList) {
         this.raceList = raceList;
+    }
+
+    public ArrayList<Deltager> getListeMedDeltagere() {
+        return listeMedDeltagere;
+    }
+
+    public void setListeMedDeltagere(ArrayList<Deltager> listeMedDeltagere) {
+        this.listeMedDeltagere = listeMedDeltagere;
     }
 }
