@@ -41,6 +41,7 @@ public class Organiser extends Bruker{
 
     public ArrayList<Resultat> opprettResultatForRace(Race race, Resultat resultat) {
 
-        return null;
+        race.getResultater().add(resultat);
+        return race.getResultater();
     }
 }

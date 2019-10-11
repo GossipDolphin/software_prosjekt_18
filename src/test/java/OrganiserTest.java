@@ -43,8 +43,11 @@ public class OrganiserTest {
         Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","racelist", tid, tid, "Halden");
         Race race = new Race("testrace","Løper for test", tid, tid);
         arrangement.getRaceList().add(race);
+        Resultat resultat1 = new Resultat(tid, konrad);
+        Resultat resultat2 = new Resultat(tid, petter);
 
-
+        assertEquals("[2019-09-09T10:30 Konrad Konradson]", organiser.opprettResultatForRace(race,resultat1).toString());
+        assertEquals("[2019-09-09T10:30 Konrad Konradson, 2019-09-09T10:30 Petter Petterson]", organiser.opprettResultatForRace(race,resultat2).toString());
     }
 
 }
