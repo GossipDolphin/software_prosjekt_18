@@ -6,15 +6,12 @@ public abstract class Bruker {
 
     private String email;
     private String password;
-    private String navn_f;
-    private String navn_e;
+    private String navn;
     private final byte[] salt;
 
     public Bruker(String email, String password, String navn){
         this.email = email;
-
-        this.navn_f = navn_f;
-        this.navn_e = navn_e;
+        this.navn = navn;
         byte[] tempSalt = new byte[7];
         new Random().nextBytes(tempSalt);
         salt = tempSalt;
@@ -23,7 +20,7 @@ public abstract class Bruker {
 
     @Override
     public String toString(){
-        return email + " " + password + " " + navn_f + " " + navn_e;
+        return email + " " + password + " " + navn;
     }
 
     public String getEmail() {
@@ -46,7 +43,13 @@ public abstract class Bruker {
         return salt;
     }
 
-    public String getNavn_f() {
+    public String getNavn(){
+        return navn;
+    }
+    public void setNavn(String navn){
+        this.navn = navn;
+    }
+    /* public String getNavn_f() {
         return navn_f;
     }
 
@@ -60,7 +63,7 @@ public abstract class Bruker {
 
     public void setNavn_e(String navn_e) {
         this.navn_e = navn_e;
-    }
+    } */
 
     public String hashPassword(String inputPassword, byte salt[]){
         String hashedPassword = null;
