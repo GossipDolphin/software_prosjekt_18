@@ -4,6 +4,7 @@ skinparam packageStyle rectangle
 
 :Arrangør:
 :Deltaker:
+:Uregistrert bruker: as Uregistrert
 rectangle Arrangement {
 
 Arrangør -- (Redigere løp)
@@ -19,13 +20,29 @@ Arrangør -- (Invitere Deltakere)
 Arrangør -- (Se alle arrangementes løp)
 
 (Se navn på arrangement) -- Deltaker
+(Se navn på arrangement) --- Uregistrert
+
 (Se arrangør) -- Deltaker
+(Se arrangør) --- Uregistrert
+
 (Se beskrivelse) -- Deltaker
+(Se beskrivelse) -- Uregistrert
+
 (Se tidspunkt) -- Deltaker
-(Se påmeldte deltakere) -- Deltaker
+(Se tidspunkt) --- Uregistrert
+
+
 (Se lokasjon) -- Deltaker
-(Invitere Deltakere) -- Deltaker
+(Se lokasjon) --- Uregistrert
+
+
 (Se alle arrangementes løp) -- Deltaker
+(Se alle arrangementes løp) --- Uregistrert
+
+
+(Invitere Deltakere) -- Deltaker
+(Se påmeldte deltakere) -- Deltaker
 (Melde seg på løp) -- Deltaker
+
 }
  @enduml
