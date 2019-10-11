@@ -39,7 +39,7 @@ public abstract class Bruker {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hashPassword(password, getSalt());
     }
 
     public byte[] getSalt(){
@@ -80,5 +80,11 @@ public abstract class Bruker {
             e.printStackTrace();
         }
         return hashedPassword;
+    }
+    public boolean login(String password){
+        if(hashPassword(password, getSalt()) == this.password)
+            return true;
+        else
+            return false;
     }
 }
