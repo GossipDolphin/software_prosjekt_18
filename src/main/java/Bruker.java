@@ -48,4 +48,5 @@ public abstract class Bruker {
     public void setNavn_e(String navn_e) {
         this.navn_e = navn_e;
     }
+
 }

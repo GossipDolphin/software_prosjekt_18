@@ -16,13 +16,14 @@ public class Organiser extends Bruker{
         return arrangementArrayList;
     }
 
-    public Arrangement opprettArrangement(String arrangementNavn, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList, ArrayList<Deltager> listeMedDeltagere) {
-        return new Arrangement(arrangementNavn,arrangementStartDate,arrangementSluttDate,arrangementLokasjon,organiser,raceList, listeMedDeltagere);
+    public Arrangement opprettArrangement(String arrangementNavn, String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList, ArrayList<Deltager> listeMedDeltagere) {
+        return new Arrangement(arrangementNavn, arrangementBeskrivelse, arrangementStartDate,arrangementSluttDate,arrangementLokasjon,organiser,raceList, listeMedDeltagere);
     }
 
     public Race leggTilRaceIArrangement(Arrangement arrangementSentMed, Race race) {
 
         Race racet = null;
+
         for (Arrangement arrangementetIListen : this.arrangementArrayList) {
             if (arrangementetIListen.equals(arrangementSentMed)) {
                 arrangementetIListen.getRaceList().add(race);
@@ -39,4 +40,5 @@ public class Organiser extends Bruker{
     public void setArrangementArrayList(ArrayList<Arrangement> arrangementArrayList) {
         this.arrangementArrayList = arrangementArrayList;
     }
+
 }
