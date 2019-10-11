@@ -1,15 +1,24 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Random;
+
 public abstract class Bruker {
 
     private String email;
     private String password;
     private String navn_f;
     private String navn_e;
+    private final byte[] salt;
 
     public Bruker(String email, String password, String navn_f, String navn_e){
         this.email = email;
-        this.password = password;
+
         this.navn_f = navn_f;
         this.navn_e = navn_e;
+        byte[] tempSalt = new byte[7];
+        new Random().nextBytes(tempSalt);
+        salt = tempSalt;
+        this.password = hashPassword(password,salt);
     }
 
     @Override
@@ -33,6 +42,10 @@ public abstract class Bruker {
         this.password = password;
     }
 
+    public byte[] getSalt(){
+        return salt;
+    }
+
     public String getNavn_f() {
         return navn_f;
     }
@@ -47,5 +60,25 @@ public abstract class Bruker {
 
     public void setNavn_e(String navn_e) {
         this.navn_e = navn_e;
+    }
+
+    public String hashPassword(String inputPassword, byte salt[]){
+        String hashedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(salt);
+            byte[] bytes = md.digest(inputPassword.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            hashedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return hashedPassword;
     }
 }
