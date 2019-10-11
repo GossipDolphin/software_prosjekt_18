@@ -39,4 +39,9 @@ public class Organiser extends Bruker{
     public void setArrangementArrayList(ArrayList<Arrangement> arrangementArrayList) {
         this.arrangementArrayList = arrangementArrayList;
     }
+
+    public Resultat setResultatForRace(Race race, Resultat resultat) {
+        race.setResultat(resultat);
+        return race.getResultat();
+    }
 }
