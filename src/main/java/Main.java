@@ -8,7 +8,7 @@ public class Main {
         LocalDateTime randomtid = LocalDateTime.parse("2019-09-09 10:30", formatter);
 
 
-        Organiser Ola = new Organiser("Ola@hotmail.com", "admin", "Oslo skiklubb");
+        Organiser Ola = new Organiser("Ola@hotmail.com", "admin", "Ola");
         Arrangement HelseArrangement = Ola.opprettArrangement("Helse arrangement","dankestrace", randomtid, randomtid, "Halden", Ola);
         Ola.leggTilArrangementIListen(HelseArrangement);
         Race race1 = new Race("ungdom 05 løp1" ,"raceracerace", randomtid, randomtid);
