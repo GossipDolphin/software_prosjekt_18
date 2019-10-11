@@ -2,8 +2,9 @@
 left to right direction
 skinparam packageStyle rectangle
 
-rectangle arrangement {
 :Arrangør:
+:Deltaker:
+rectangle Arrangement {
 
 Arrangør -up- (Redigere løp)
 Arrangør -up- (Opprette løp)
@@ -16,8 +17,6 @@ Arrangør -- (Se beskrivelse)
 Arrangør -- (Se tidspunkt)
 Arrangør -- (Se arrangør)
 Arrangør -- (Se navn på arrangement)
-
-:Deltaker:
 
 (Se navn på arrangement) -- Deltaker
 (Se arrangør) -- Deltaker
