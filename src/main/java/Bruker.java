@@ -1,5 +1,7 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public abstract class Bruker {
@@ -8,6 +10,7 @@ public abstract class Bruker {
     private String password;
     private String navn;
     private final byte[] salt;
+    public static List<Bruker> alleBrukere = new ArrayList<>();
 
     public Bruker(String email, String password, String navn){
         this.email = email;
@@ -16,6 +19,7 @@ public abstract class Bruker {
         new Random().nextBytes(tempSalt);
         salt = tempSalt;
         this.password = hashPassword(password,salt);
+        alleBrukere.add(this);
     }
 
     @Override
