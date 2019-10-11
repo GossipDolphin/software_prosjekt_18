@@ -2,11 +2,10 @@ import java.util.ArrayList;
 
 public class Deltager extends Bruker{
 
-    private ArrayList<Arrangement> listeMedArrangementer;
+    private ArrayList<Arrangement> listeMedArrangementer = new ArrayList<>();
 
-    public Deltager(String email, String password, String navn_f, String navn_e, ArrayList<Arrangement> listeMedArrangementer) {
+    public Deltager(String email, String password, String navn_f, String navn_e) {
         super(email, password, navn_f, navn_e);
-        this.listeMedArrangementer = listeMedArrangementer;
     }
 
     public Arrangement meldMegPaaArangement(Arrangement arrangement) {

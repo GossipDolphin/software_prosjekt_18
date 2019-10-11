@@ -14,7 +14,7 @@ public class Deltagertest {
     private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser", "TheFifth", new ArrayList<>());
     private ArrayList<Race> racelist = new ArrayList<>();
     private Arrangement arrangement = new Arrangement("MLG dankløp", tid, tid, "Halden", organiser, racelist);
-    private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson", new ArrayList<>());
+    private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
     private Race race = new Race("Kan du løpe fortere en hunden min?", tid, tid);
 
 
@@ -40,7 +40,7 @@ public class Deltagertest {
 
     @Test
     public void hent_de_race_jeg_er_med_i(){
-        Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson", new ArrayList<>());
+        Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson");
         Race race1 = new Race("race1 for the stuff",tid,tid);
         Race race2 = new Race("race2 for the stuff",tid,tid);
         Race race3 = new Race("race3 for the stuff",tid,tid);
