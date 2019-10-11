@@ -10,9 +10,9 @@ public class Main {
 
 
         Organiser Ola = new Organiser("Ola@hotmail.com", "admin", "Ola", "Normann", new ArrayList<>());
-        Arrangement HelseArrangement = Ola.opprettArrangement("Helse arrangement", randomtid, randomtid, "Halden", Ola, new ArrayList<>());
+        Arrangement HelseArrangement = Ola.opprettArrangement("Helse arrangement","dankestrace", randomtid, randomtid, "Halden", Ola, new ArrayList<>(),new ArrayList<>());
         Ola.leggTilArrangementIListen(HelseArrangement);
-        Race race1 = new Race("ungdom 05 løp1" , randomtid, randomtid);
+        Race race1 = new Race("ungdom 05 løp1" ,"raceracerace", randomtid, randomtid, new ArrayList<>());
         Ola.leggTilRaceIArrangement(HelseArrangement, race1);
     }
 }

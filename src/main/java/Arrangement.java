@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Arrangement {
 
     private String arrangementNavn;
+    private String arrangementBeskrivelse;
     private LocalDateTime arrangementStartDate;
     private LocalDateTime arrangementSluttDate;
     private String arrangementLokasjon;
@@ -11,8 +12,9 @@ public class Arrangement {
     private ArrayList<Race> raceList;
     private ArrayList<Deltager> listeMedDeltagere;
 
-    Arrangement(String arrangementNavn, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList, ArrayList<Deltager> listeMedDeltagere) {
+    Arrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList, ArrayList<Deltager> listeMedDeltagere) {
         this.arrangementNavn = arrangementNavn;
+        this.arrangementBeskrivelse = arrangementBeskrivelse;
         this.arrangementStartDate = arrangementStartDate;
         this.arrangementSluttDate = arrangementSluttDate;
         this.arrangementLokasjon = arrangementLokasjon;
@@ -32,6 +34,14 @@ public class Arrangement {
 
     public void setArrangementNavn(String arrangementNavn) {
         this.arrangementNavn = arrangementNavn;
+    }
+
+    public String getArrangementBeskrivelse() {
+        return arrangementBeskrivelse;
+    }
+
+    public void setArrangementBeskrivelse(String arrangementBeskrivelse) {
+        this.arrangementBeskrivelse = arrangementBeskrivelse;
     }
 
     public LocalDateTime getArrangementStartDate() {

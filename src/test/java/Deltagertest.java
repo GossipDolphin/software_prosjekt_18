@@ -13,9 +13,10 @@ public class Deltagertest {
     private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
     private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser", "TheFifth", new ArrayList<>());
     private ArrayList<Race> racelist = new ArrayList<>();
-    private Arrangement arrangement = new Arrangement("MLG dankløp", tid, tid, "Halden", organiser, racelist);
+    private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
+    private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser, racelist, listeMedDeltagere);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
-    private Race race = new Race("Kan du løpe fortere en hunden min?", tid, tid);
+    private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid, listeMedDeltagere);
 
 
     @Test
@@ -41,10 +42,10 @@ public class Deltagertest {
     @Test
     public void hent_de_race_jeg_er_med_i(){
         Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson");
-        Race race1 = new Race("race1 for the stuff",tid,tid);
-        Race race2 = new Race("race2 for the stuff",tid,tid);
-        Race race3 = new Race("race3 for the stuff",tid,tid);
-        Arrangement arrangement2 = new Arrangement("MLG dankløp", tid, tid, "Halden", organiser, new ArrayList<>());
+        Race race1 = new Race("race1 for the stuff","dankestrace",tid,tid,new ArrayList<>());
+        Race race2 = new Race("race2 for the stuff","dankestrace",tid,tid,new ArrayList<>());
+        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid,new ArrayList<>());
+        Arrangement arrangement2 = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser, new ArrayList<>(), new ArrayList<>());
 
         //Legger til et race i listen til arrangementet og melder petter på racet
         arrangement.getRaceList().add(race1);
