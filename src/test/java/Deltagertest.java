@@ -11,12 +11,12 @@ public class Deltagertest {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private String randomTid = "2019-09-09 10:30";
     private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
-    private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser", "TheFifth", new ArrayList<>());
+    private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser", "TheFifth");
     private ArrayList<Race> racelist = new ArrayList<>();
     private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
     private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser, racelist, listeMedDeltagere);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
-    private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid, listeMedDeltagere);
+    private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid);
 
 
     @Test
@@ -42,9 +42,9 @@ public class Deltagertest {
     @Test
     public void hent_de_race_jeg_er_med_i(){
         Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson");
-        Race race1 = new Race("race1 for the stuff","dankestrace",tid,tid,new ArrayList<>());
-        Race race2 = new Race("race2 for the stuff","dankestrace",tid,tid,new ArrayList<>());
-        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid,new ArrayList<>());
+        Race race1 = new Race("race1 for the stuff","dankestrace",tid,tid);
+        Race race2 = new Race("race2 for the stuff","dankestrace",tid,tid);
+        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid);
         Arrangement arrangement2 = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser, new ArrayList<>(), new ArrayList<>());
 
         //Legger til et race i listen til arrangementet og melder petter på racet

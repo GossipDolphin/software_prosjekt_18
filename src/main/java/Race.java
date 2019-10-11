@@ -6,14 +6,13 @@ public class Race {
     private String raceBeskrivelse;
     private LocalDateTime raceStart;
     private LocalDateTime raceSlutt;
-    private ArrayList<Deltager> deltagere;
+    private ArrayList<Deltager> deltagere = new ArrayList<>();
 
-    Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt, ArrayList<Deltager> deltagere) {
+    Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt) {
         this.raceNavn = raceNavn;
         this.raceBeskrivelse = raceBeskrivelse;
         this.raceStart = raceStart;
         this.raceSlutt = raceSlutt;
-        this.deltagere = deltagere;
     }
 
     @Override

@@ -3,11 +3,10 @@ import java.util.ArrayList;
 
 public class Organiser extends Bruker{
 
-    private ArrayList<Arrangement> arrangementArrayList;
+    private ArrayList<Arrangement> arrangementArrayList = new ArrayList<>();
 
-    Organiser(String email, String password, String navn_f, String navn_e, ArrayList<Arrangement> arrangementArrayList) {
+    Organiser(String email, String password, String navn_f, String navn_e) {
         super(email, password, navn_f, navn_e);
-        this.arrangementArrayList=arrangementArrayList;
     }
 
     public ArrayList<Arrangement> leggTilArrangementIListen(Arrangement arrangement){
@@ -38,10 +37,5 @@ public class Organiser extends Bruker{
 
     public void setArrangementArrayList(ArrayList<Arrangement> arrangementArrayList) {
         this.arrangementArrayList = arrangementArrayList;
-    }
-
-    public Resultat setResultatForRace(Race race, Resultat resultat) {
-        race.setResultat(resultat);
-        return race.getResultat();
     }
 }
