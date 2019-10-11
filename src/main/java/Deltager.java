@@ -9,7 +9,6 @@ public class Deltager extends Bruker{
         this.listeMedArrangementer = listeMedArrangementer;
     }
 
-
     public Arrangement meldMegPaaArangement(Arrangement arrangement) {
         arrangement.getListeMedDeltagere().add(this);
         this.getListeMedArrangementer().add(arrangement);

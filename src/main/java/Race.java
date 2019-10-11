@@ -5,13 +5,13 @@ public class Race {
     private String raceNavn;
     private LocalDateTime raceStart;
     private LocalDateTime raceSlutt;
-    private ArrayList<Deltager> deltagere;
+    private ArrayList<Deltager> deltagere = new ArrayList<>();
+    private ArrayList<Resultat> resultater = new ArrayList<>();
 
-    Race(String raceNavn, LocalDateTime raceStart, LocalDateTime raceSlutt, ArrayList<Deltager> deltagere) {
+    Race(String raceNavn, LocalDateTime raceStart, LocalDateTime raceSlutt) {
         this.raceNavn = raceNavn;
         this.raceStart = raceStart;
         this.raceSlutt = raceSlutt;
-        this.deltagere = deltagere;
     }
 
     @Override
@@ -49,5 +49,14 @@ public class Race {
 
     public void setDeltagere(ArrayList<Deltager> deltagere) {
         this.deltagere = deltagere;
+    }
+
+
+    public ArrayList<Resultat> getResultater() {
+        return resultater;
+    }
+
+    public void setResultater(ArrayList<Resultat> resultater) {
+        this.resultater = resultater;
     }
 }
