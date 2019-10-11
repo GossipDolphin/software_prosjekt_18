@@ -15,8 +15,8 @@ public class Organiser extends Bruker{
         return arrangementArrayList;
     }
 
-    public Arrangement opprettArrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList,ArrayList<Deltager> deltagerList) {
-        return new Arrangement(arrangementNavn,arrangementBeskrivelse,arrangementStartDate,arrangementSluttDate,arrangementLokasjon,organiser,raceList,deltagerList);
+    public Arrangement opprettArrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser) {
+        return new Arrangement(arrangementNavn,arrangementBeskrivelse,arrangementStartDate,arrangementSluttDate,arrangementLokasjon,organiser);
     }
 
     public Race leggTilRaceIArrangement(Arrangement arrangementSentMed, Race race) {

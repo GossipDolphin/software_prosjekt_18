@@ -9,18 +9,16 @@ public class Arrangement {
     private LocalDateTime arrangementSluttDate;
     private String arrangementLokasjon;
     private Organiser organiser;
-    private ArrayList<Race> raceList;
-    private ArrayList<Deltager> listeMedDeltagere;
+    private ArrayList<Race> raceList = new ArrayList<>();
+    private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
 
-    Arrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser, ArrayList<Race> raceList, ArrayList<Deltager> listeMedDeltagere) {
+    Arrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser) {
         this.arrangementNavn = arrangementNavn;
         this.arrangementBeskrivelse = arrangementBeskrivelse;
         this.arrangementStartDate = arrangementStartDate;
         this.arrangementSluttDate = arrangementSluttDate;
         this.arrangementLokasjon = arrangementLokasjon;
         this.organiser = organiser;
-        this.raceList = raceList;
-        this.listeMedDeltagere = listeMedDeltagere;
     }
 
     @Override
