@@ -4,29 +4,29 @@ skinparam packageStyle rectangle
 
 rectangle arrangement {
 :Arrangør:
-note bottom of Arrangør
-    En bruker er arrangør for
-    arrangementet den oppretter
-end note
 
-Arrangør -- (Se liste med løp)
 Arrangør -up- (Redigere løp)
 Arrangør -up- (Opprette løp)
-Arrangør -up- (Tildele brukere arrangør-status)
-Arrangør -- (Se deltakere)
-Arrangør -- (Invitere brukere)
+Arrangør -up- (Redigere detaljer/info)
+Arrangør -- (Se alle arrangementes løp)
+Arrangør -- (Se påmeldte deltakere)
+Arrangør -- (Invitere Deltakere)
 Arrangør -- (Se lokasjon)
 Arrangør -- (Se beskrivelse)
-Arrangør -up- (Redigere arrangement)
+Arrangør -- (Se tidspunkt)
+Arrangør -- (Se arrangør)
+Arrangør -- (Se navn på arrangement)
 
+:Deltaker:
 
-:Bruker:
-
-(Se deltakere) -- Bruker
-(Invitere brukere) -- Bruker
-(Se liste med løp) -- Bruker
-(Se beskrivelse) -- Bruker
-(Melde seg på løp) -- Bruker
-(Se lokasjon) -- Bruker
+(Se navn på arrangement) -- Deltaker
+(Se arrangør) -- Deltaker
+(Se tidspunkt) -- Deltaker
+(Se påmeldte deltakere) -- Deltaker
+(Invitere Deltakere) -- Deltaker
+(Se alle arrangementes løp) -- Deltaker
+(Se beskrivelse) -- Deltaker
+(Melde seg på løp) -- Deltaker
+(Se lokasjon) -- Deltaker
 }
  @enduml
