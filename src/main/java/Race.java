@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Race {
     private String raceNavn;
@@ -7,7 +8,7 @@ public class Race {
     private LocalDateTime raceStart;
     private LocalDateTime raceSlutt;
     private ArrayList<Deltager> deltagere = new ArrayList<>();
-    private ArrayList<Resultat> resultater = new ArrayList<>();
+    private HashMap<Deltager, LocalDateTime> resultatMap = new HashMap<>();
 
     Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt) {
         this.raceNavn = raceNavn;
@@ -60,11 +61,12 @@ public class Race {
     public void setDeltagere(ArrayList<Deltager> deltagere) {
         this.deltagere = deltagere;
     }
-    public ArrayList<Resultat> getResultater() {
-        return resultater;
+    public HashMap<Deltager, LocalDateTime> getResultatMap() {
+        return resultatMap;
     }
 
-    public void setResultater(ArrayList<Resultat> resultater) {
-        this.resultater = resultater;
+    public void setResultatMap(HashMap<Deltager, LocalDateTime> resultatMap) {
+        this.resultatMap = resultatMap;
     }
+
 }

@@ -39,9 +39,5 @@ public class Organiser extends Bruker{
         this.arrangementArrayList = arrangementArrayList;
     }
 
-    public ArrayList<Resultat> opprettResultatForRace(Race race, Resultat resultat) {
 
-        race.getResultater().add(resultat);
-        return race.getResultater();
-    }
 }

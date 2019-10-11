@@ -2,7 +2,6 @@ import org.testng.annotations.Test;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,10 +10,8 @@ public class OrganiserTest {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private Organiser organiser = new Organiser("a", "a", "a");
     private String randomTid = "2019-09-09 10:30";
-    LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
+    private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
     private Arrangement arrangement = new Arrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser);
-    private ArrayList<Race> racelist = new ArrayList<>();
-    private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
 
     @Test
     public void opprett_arrangement() {
@@ -36,18 +33,5 @@ public class OrganiserTest {
     }
 
 
-    @Test
-    public void opprett_resultater_for_race(){
-        Deltager konrad = new Deltager("konrad@gmail.com","admin", "Konrad", "Konradson");
-        Deltager petter = new Deltager("konrad@gmail.com","admin", "Petter", "Petterson");
-        Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","racelist", tid, tid, "Halden");
-        Race race = new Race("testrace","Løper for test", tid, tid);
-        arrangement.getRaceList().add(race);
-        Resultat resultat1 = new Resultat(tid, konrad);
-        Resultat resultat2 = new Resultat(tid, petter);
-
-        assertEquals("[2019-09-09T10:30 Konrad Konradson]", organiser.opprettResultatForRace(race,resultat1).toString());
-        assertEquals("[2019-09-09T10:30 Konrad Konradson, 2019-09-09T10:30 Petter Petterson]", organiser.opprettResultatForRace(race,resultat2).toString());
-    }
 
 }
