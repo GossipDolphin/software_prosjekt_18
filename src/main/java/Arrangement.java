@@ -73,7 +73,6 @@ public class Arrangement {
     public void setOrganiser(Organiser organiser) {
         this.organiser = organiser;
     }
-
     public ArrayList<Race> getRaceList() {
         return raceList;
     }
