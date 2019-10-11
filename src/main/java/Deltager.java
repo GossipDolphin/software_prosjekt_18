@@ -1,11 +1,15 @@
 import java.util.ArrayList;
 
 public class Deltager extends Bruker{
+    private String fornavn;
+    private String etternavn;
 
     private ArrayList<Arrangement> listeMedArrangementer = new ArrayList<>();
 
     public Deltager(String email, String password, String navn_f, String navn_e) {
-        super(email, password, navn_f, navn_e);
+        super(email, password, (navn_f + " " + navn_e));
+        fornavn = navn_f;
+        etternavn = navn_e;
     }
 
     public Arrangement meldMegPaaArangement(Arrangement arrangement) {

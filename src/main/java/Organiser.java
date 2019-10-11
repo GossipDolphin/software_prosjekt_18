@@ -5,8 +5,8 @@ public class Organiser extends Bruker{
 
     private ArrayList<Arrangement> arrangementArrayList = new ArrayList<>();
 
-    Organiser(String email, String password, String navn_f, String navn_e) {
-        super(email, password, navn_f, navn_e);
+    Organiser(String email, String password, String navn) {
+        super(email, password, navn);
     }
 
     public ArrayList<Arrangement> leggTilArrangementIListen(Arrangement arrangement){
