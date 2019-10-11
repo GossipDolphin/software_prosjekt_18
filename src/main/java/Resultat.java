@@ -1,20 +1,20 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Resultat {
 
-    private LocalDate tidAnnkommetMaal;
+    private LocalDateTime tidAnnkommetMaal;
     private Deltager deltager;
 
-    public Resultat(LocalDate tidAnnkommetMaal, Deltager deltager){
+    public Resultat(LocalDateTime tidAnnkommetMaal, Deltager deltager){
         this.tidAnnkommetMaal = tidAnnkommetMaal;
         this.deltager = deltager;
     }
 
-    public LocalDate getTidAnnkommetMaal() {
+    public LocalDateTime getTidAnnkommetMaal() {
         return tidAnnkommetMaal;
     }
 
-    public void setTidAnnkommetMaal(LocalDate tidAnnkommetMaal) {
+    public void setTidAnnkommetMaal(LocalDateTime tidAnnkommetMaal) {
         this.tidAnnkommetMaal = tidAnnkommetMaal;
     }
 
