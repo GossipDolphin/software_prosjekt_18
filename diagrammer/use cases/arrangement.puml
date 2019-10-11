@@ -6,26 +6,26 @@ skinparam packageStyle rectangle
 :Deltaker:
 rectangle Arrangement {
 
-Arrangør -up- (Redigere løp)
-Arrangør -up- (Opprette løp)
-Arrangør -up- (Redigere detaljer/info)
-Arrangør -- (Se alle arrangementes løp)
-Arrangør -- (Se påmeldte deltakere)
-Arrangør -- (Invitere Deltakere)
-Arrangør -- (Se lokasjon)
+Arrangør -- (Redigere løp)
+Arrangør -- (Opprette løp)
+Arrangør -- (Redigere detaljer/info)
+Arrangør -- (Se navn på arrangement)
+Arrangør -- (Se arrangør)
 Arrangør -- (Se beskrivelse)
 Arrangør -- (Se tidspunkt)
-Arrangør -- (Se arrangør)
-Arrangør -- (Se navn på arrangement)
+Arrangør -- (Se påmeldte deltakere)
+Arrangør -- (Se lokasjon)
+Arrangør -- (Invitere Deltakere)
+Arrangør -- (Se alle arrangementes løp)
 
 (Se navn på arrangement) -- Deltaker
 (Se arrangør) -- Deltaker
+(Se beskrivelse) -- Deltaker
 (Se tidspunkt) -- Deltaker
 (Se påmeldte deltakere) -- Deltaker
+(Se lokasjon) -- Deltaker
 (Invitere Deltakere) -- Deltaker
 (Se alle arrangementes løp) -- Deltaker
-(Se beskrivelse) -- Deltaker
 (Melde seg på løp) -- Deltaker
-(Se lokasjon) -- Deltaker
 }
  @enduml
