@@ -9,7 +9,7 @@ public class Main {
 
 
         Organiser Ola = new Organiser("Ola@hotmail.com", "admin", "Ola", "Normann");
-        Arrangement HelseArrangement = Ola.opprettArrangement("Helse arrangement","dankestrace", randomtid, randomtid, "Halden", Ola);
+        Arrangement HelseArrangement = Ola.opprettArrangement("Helse arrangement","dankestrace", randomtid, randomtid, "Halden");
         Ola.leggTilArrangementIListen(HelseArrangement);
         Race race1 = new Race("ungdom 05 løp1" ,"raceracerace", randomtid, randomtid);
         Ola.leggTilRaceIArrangement(HelseArrangement, race1);

@@ -18,8 +18,7 @@ public class OrganiserTest {
 
     @Test
     public void opprett_arrangement() {
-
-        assertEquals(organiser.opprettArrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser).toString(), arrangement.toString());
+        assertEquals(organiser.opprettArrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden").toString(), arrangement.toString());
     }
 
     @Test
@@ -29,16 +28,22 @@ public class OrganiserTest {
 
     @Test
     public void test_legg_til_race_i_arrangement() {
-        Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser);
+        Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden");
         organiser.leggTilArrangementIListen(arrangement);
         Race race = new Race("race number one","raceracerace", LocalDateTime.now(), LocalDateTime.now());
-        assertEquals(race.toString() ,organiser.leggTilRaceIArrangement(arrangement, race).toString());
+
+            assertEquals(race.toString() ,organiser.leggTilRaceIArrangement(arrangement, race).toString());
     }
+
 
     @Test
     public void opprett_resultater_for_race(){
-        Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","racelist", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser);
+        Deltager konrad = new Deltager("konrad@gmail.com","admin", "Konrad", "Konradson");
+        Deltager petter = new Deltager("konrad@gmail.com","admin", "Petter", "Petterson");
+        Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","racelist", tid, tid, "Halden");
         Race race = new Race("testrace","Løper for test", tid, tid);
+        arrangement.getRaceList().add(race);
+
 
     }
 
