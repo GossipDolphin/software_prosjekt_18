@@ -7,6 +7,7 @@ public class Race {
     private LocalDateTime raceStart;
     private LocalDateTime raceSlutt;
     private ArrayList<Deltager> deltagere = new ArrayList<>();
+    private ArrayList<Resultat> resultater = new ArrayList<>();
 
     Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt) {
         this.raceNavn = raceNavn;
@@ -58,5 +59,12 @@ public class Race {
 
     public void setDeltagere(ArrayList<Deltager> deltagere) {
         this.deltagere = deltagere;
+    }
+    public ArrayList<Resultat> getResultater() {
+        return resultater;
+    }
+
+    public void setResultater(ArrayList<Resultat> resultater) {
+        this.resultater = resultater;
     }
 }

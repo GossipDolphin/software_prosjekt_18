@@ -12,6 +12,8 @@ public class Deltager extends Bruker{
         etternavn = navn_e;
     }
 
+
+
     public Arrangement meldMegPaaArangement(Arrangement arrangement) {
         arrangement.getListeMedDeltagere().add(this);
         this.getListeMedArrangementer().add(arrangement);
@@ -56,4 +58,9 @@ public class Deltager extends Bruker{
         }
         return mineRace;
     }
+    public String getNavn_f(){
+        return fornavn;
+    }
+    public String getNavn_e(){
+        return etternavn;    }
 }
