@@ -10,7 +10,7 @@ public abstract class Bruker {
     private String navn_e;
     private final byte[] salt;
 
-    public Bruker(String email, String password, String navn_f, String navn_e){
+    public Bruker(String email, String password, String navn){
         this.email = email;
 
         this.navn_f = navn_f;

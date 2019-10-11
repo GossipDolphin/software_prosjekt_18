@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Test
 public class OrganiserTest {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-    private Organiser organiser = new Organiser("a", "a", "a", "a");
+    private Organiser organiser = new Organiser("a", "a", "a");
     private String randomTid = "2019-09-09 10:30";
     LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
     private Arrangement arrangement = new Arrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser);

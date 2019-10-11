@@ -11,7 +11,7 @@ public class Deltagertest {
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private String randomTid = "2019-09-09 10:30";
     private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
-    private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser", "TheFifth");
+    private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser");
     private ArrayList<Race> racelist = new ArrayList<>();
     private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
     private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
