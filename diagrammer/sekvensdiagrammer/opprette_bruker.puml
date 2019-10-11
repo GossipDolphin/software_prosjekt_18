@@ -1,14 +1,18 @@
 @startuml
-Bruker -> Frontend: Opprett bruker
-Frontend -> Backend: Opprette bruker
-Backend -> Backend: Informasjon sjekk
+
+
+Bruker -> Frontend: Gir brukerinfo
+Frontend -> Backend: Sender brukerinfo
+Backend -> Backend: Sjekker brukerinfo
 
 alt gyldig informasjon
+ Backend -> Backend: Oppretter bruker
  Backend --> Frontend: bruker opprettet
  Frontend --> Bruker: bruker opprettet
 else  ikke gyldig informasjon
  Backend --> Frontend: ugyldig informasjon
  Frontend --> Bruker: ugyldig informasjon
 end
+
 
 @enduml
