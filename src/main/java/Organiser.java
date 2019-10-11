@@ -15,8 +15,8 @@ public class Organiser extends Bruker{
         return arrangementArrayList;
     }
 
-    public Arrangement opprettArrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon, Organiser organiser) {
-        return new Arrangement(arrangementNavn,arrangementBeskrivelse,arrangementStartDate,arrangementSluttDate,arrangementLokasjon,organiser);
+    public Arrangement opprettArrangement(String arrangementNavn,String arrangementBeskrivelse, LocalDateTime arrangementStartDate, LocalDateTime arrangementSluttDate, String arrangementLokasjon) {
+        return new Arrangement(arrangementNavn,arrangementBeskrivelse,arrangementStartDate,arrangementSluttDate,arrangementLokasjon,this);
     }
 
     public Race leggTilRaceIArrangement(Arrangement arrangementSentMed, Race race) {
@@ -38,4 +38,6 @@ public class Organiser extends Bruker{
     public void setArrangementArrayList(ArrayList<Arrangement> arrangementArrayList) {
         this.arrangementArrayList = arrangementArrayList;
     }
+
+
 }
