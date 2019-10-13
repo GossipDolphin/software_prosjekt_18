@@ -1,10 +1,13 @@
+package softwareengineering.model;
+
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Bruker {
+public abstract class Bruker implements Serializable {
 
     private String email;
     private String password;
@@ -24,7 +27,7 @@ public abstract class Bruker {
 
     @Override
     public String toString(){
-        return email + " " + password + " " + navn;
+        return email + " " + navn;
     }
 
     public String getEmail() {
@@ -69,7 +72,7 @@ public abstract class Bruker {
         this.navn_e = navn_e;
     } */
 
-    public String hashPassword(String inputPassword, byte salt[]){
+    public static String hashPassword(String inputPassword, byte salt[]){
         String hashedPassword = null;
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -88,10 +91,30 @@ public abstract class Bruker {
         }
         return hashedPassword;
     }
-    public boolean login(String password){
-        if(hashPassword(password, getSalt()) == this.password)
-            return true;
+    public static Bruker login(String email, String password){
+        System.out.println("Test");
+        Bruker temp = null;
+        for(int i = 0; i<alleBrukere.size();i++)
+        {
+            if(email == alleBrukere.get(i).getEmail());
+                temp=alleBrukere.get(i);
+        }
+        if(temp != null)
+        {
+            System.out.println(temp.getNavn());
+        }
+        String test1 = hashPassword(password, temp.getSalt());
+        String test2 = temp.getPassword();
+        System.out.println(test1);
+        System.out.println(test2);
+        if(test1.equals(test2))
+        {
+            System.out.println("KKK");
+            return temp;
+
+        }
+
         else
-            return false;
+            return null;
     }
 }

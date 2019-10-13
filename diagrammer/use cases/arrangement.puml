@@ -5,7 +5,7 @@ skinparam packageStyle rectangle
 :Arrangør:
 :Deltaker:
 :Uregistrert bruker: as Uregistrert
-rectangle Arrangement {
+rectangle softwareengineering.model.Arrangement {
 
 Arrangør -- (Redigere løp)
 Arrangør -- (Opprette løp)

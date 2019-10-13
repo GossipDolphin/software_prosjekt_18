@@ -1,10 +1,13 @@
+package softwareengineering.model;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Deltager extends Bruker{
+public class Deltager extends Bruker implements Serializable {
     private String fornavn;
     private String etternavn;
 
-    private ArrayList<Arrangement> listeMedArrangementer = new ArrayList<>();
+    private ArrayList<Arrangement> arrangementListe = new ArrayList<>();
 
     public Deltager(String email, String password, String navn_f, String navn_e) {
         super(email, password, (navn_f + " " + navn_e));
@@ -14,26 +17,22 @@ public class Deltager extends Bruker{
 
 
 
-    public Arrangement meldMegPaaArangement(Arrangement arrangement) {
-        arrangement.getListeMedDeltagere().add(this);
-        this.getListeMedArrangementer().add(arrangement);
+    public Arrangement joinArrangement(Arrangement arrangement) {
+        arrangement.getDeltagerList().add(this);
+        this.getArrangementListe().add(arrangement);
         return arrangement;
     }
 
-    public ArrayList<Arrangement> HentDeArrangementerJegErMedI() {
-        return this.getListeMedArrangementer();
+    public ArrayList<Arrangement> getArrangementListe() {
+        return arrangementListe;
     }
 
-    public ArrayList<Arrangement> getListeMedArrangementer() {
-        return listeMedArrangementer;
-    }
-
-    public void setListeMedArrangementer(ArrayList<Arrangement> listeMedArrangementer) {
-        this.listeMedArrangementer = listeMedArrangementer;
+    public void setArrangementListe(ArrayList<Arrangement> arrangementListe) {
+        this.arrangementListe = arrangementListe;
     }
 
 
-    public Race meldMegPaaRaceIArrangement(Arrangement arrangement, Race race) {
+    public Race joinRace(Arrangement arrangement, Race race) {
         Race racetSomSkalReturners = null;
         for (Race racet : arrangement.getRaceList()){
             if (racet.equals(race)){
@@ -47,7 +46,7 @@ public class Deltager extends Bruker{
     public ArrayList<Race> hentMineRace() {
         ArrayList<Race> mineRace = new ArrayList<>();
 
-        for (Arrangement arrangement : this.HentDeArrangementerJegErMedI()){
+        for (Arrangement arrangement : getArrangementListe()){
             for (Race race : arrangement.getRaceList()){
                 for (Deltager deltager : race.getDeltagere()){
                     if (this.getEmail().equals(deltager.getEmail())){
@@ -58,6 +57,7 @@ public class Deltager extends Bruker{
         }
         return mineRace;
     }
+
     public String getNavn_f(){
         return fornavn;
     }
