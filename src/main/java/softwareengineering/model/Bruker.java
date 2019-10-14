@@ -109,7 +109,6 @@ public abstract class Bruker implements Serializable {
         System.out.println(test2);
         if(test1.equals(test2))
         {
-            System.out.println("KKK");
             return temp;
 
         }

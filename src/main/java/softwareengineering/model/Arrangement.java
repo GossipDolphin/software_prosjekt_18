@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Arrangement implements Serializable {
     public static List<Arrangement> alleArrangement = new ArrayList<>();
+    public static int idTeller = 0;
+
+    private int id;
+
     private String navn;
     private String beskrivelse;
     private LocalDateTime startDate;
@@ -23,7 +27,9 @@ public class Arrangement implements Serializable {
         this.sluttDate = sluttDate;
         this.lokasjon = lokasjon;
         this.organiser = organiser;
+        id = idTeller++;
         alleArrangement.add(this);
+        System.out.println(id);
     }
 
     @Override
@@ -100,5 +106,22 @@ public class Arrangement implements Serializable {
 
     public static List<Arrangement> getAlleArrangement() {
         return alleArrangement;
+    }
+
+    public static int getIdTeller() {
+        return idTeller;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public static Arrangement getArrangementById(int id){
+        Arrangement temp = null;
+        for(int i = 0;i<alleArrangement.size();i++)
+        {
+            if(alleArrangement.get(i).getId()==id)
+                temp = alleArrangement.get(i);
+        }
+        return temp;
     }
 }
