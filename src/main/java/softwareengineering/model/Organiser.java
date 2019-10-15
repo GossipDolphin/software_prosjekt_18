@@ -46,7 +46,4 @@ public class Organiser extends Bruker implements Serializable {
     public void setArrangementListe(ArrayList<Arrangement> arrangementListe) {
         this.arrangementListe = arrangementListe;
     }
-
-
-
 }
