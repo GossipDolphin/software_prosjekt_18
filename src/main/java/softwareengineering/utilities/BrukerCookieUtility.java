@@ -5,16 +5,19 @@ import softwareengineering.model.Bruker;
 import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class BrukerCookieUtility {
-    private HashMap<Cookie,Bruker> cookieMap = new HashMap<>();
+    private Map<Cookie,Bruker> cookieMap = new HashMap<>();
 
     public Bruker checkCookie(Cookie cookie) throws IOException, ClassNotFoundException {
-        /*byte b[] = cookie.getValue().getBytes();
-        ByteArrayInputStream bi = new ByteArrayInputStream(b);
-        ObjectInputStream si = new ObjectInputStream(bi);
-        Bruker bruker = (Bruker) si.readObject();*/
+
+        for(Map.Entry<Cookie,Bruker> entry: cookieMap.entrySet())
+        {
+            if(entry.getKey()==cookie)
+                return entry.getValue();
+        }
         return cookieMap.get(cookie);
     }
 
