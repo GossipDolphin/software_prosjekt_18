@@ -3,9 +3,8 @@ package softwareengineering.utilities;
 import softwareengineering.model.Bruker;
 
 import javax.servlet.http.Cookie;
-import java.io.*;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class BrukerCookieUtility {
