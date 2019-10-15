@@ -80,13 +80,13 @@ public class Deltagertest {
         Race race = new Race("løpløp", "test av løp", tid,tid);
         Race race2 = new Race("løpløp2", "test av løp2", tid,tid);
 
-        organiser.leggTilArrangementIListen(arrangement2);
-        organiser.leggTilRaceIArrangement(arrangement2, race);
-        organiser.leggTilRaceIArrangement(arrangement2, race2);
+        organiser.addArrangement(arrangement2);
+        organiser.addRace(arrangement2, race);
+        organiser.addRace(arrangement2, race2);
 
-        petter.meldMegPaaArangement(arrangement2);
-        petter.meldMegPaaRaceIArrangement(arrangement2, race);
-        petter.meldMegPaaRaceIArrangement(arrangement2, race2);
+        petter.joinArrangement(arrangement2);
+        petter.joinRace(arrangement2, race);
+        petter.joinRace(arrangement2, race2);
 
         organiser.leggTilResultatTilRace(race, petter, tid);
         organiser.leggTilResultatTilRace(race2, petter, tid);
@@ -94,8 +94,8 @@ public class Deltagertest {
         testliste.add(race.getResultatMap());
         testliste.add(race2.getResultatMap());
 
+        System.out.println(petter.hentResultateneForMineRace());
+
         assertEquals(testliste.toString(), petter.hentResultateneForMineRace().toString());
-
-
     }
 }

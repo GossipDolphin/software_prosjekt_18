@@ -1,7 +1,5 @@
 package softwareengineering.model;
 
-import softwareengineering.model.Deltager;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

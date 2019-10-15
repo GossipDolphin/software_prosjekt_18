@@ -2,6 +2,7 @@ package softwareengineering.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Deltager extends Bruker implements Serializable {
     private String fornavn;
@@ -63,4 +64,16 @@ public class Deltager extends Bruker implements Serializable {
     }
     public String getNavn_e(){
         return etternavn;    }
+
+    public ArrayList<HashMap> hentResultateneForMineRace() {
+        ArrayList<HashMap> listeMedResultater = new ArrayList<>();
+        for(Arrangement arrangement : this.getArrangementListe()){
+            for(Race race : arrangement.getRaceList()){
+                listeMedResultater.add(race.getResultatMap());
+            }
+        }
+        return listeMedResultater;
+    }
+
+
 }

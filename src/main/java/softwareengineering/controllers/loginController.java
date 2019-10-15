@@ -2,16 +2,15 @@ package softwareengineering.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import softwareengineering.model.Arrangement;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import softwareengineering.model.Bruker;
 import softwareengineering.utilities.BrukerCookieUtility;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 
 @Controller
 public class loginController {

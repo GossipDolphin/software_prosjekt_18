@@ -2,7 +2,6 @@ package softwareengineering;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import softwareengineering.model.Arrangement;
 import softwareengineering.model.Organiser;
 import softwareengineering.model.Race;
