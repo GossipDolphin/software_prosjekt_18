@@ -1,5 +1,7 @@
 package softwareengineering.model;
 
+import softwareengineering.utilities.GoogleMapsApi;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.List;
 public class Arrangement implements Serializable {
     public static List<Arrangement> alleArrangement = new ArrayList<>();
     public static int idTeller = 0;
-
+    GoogleMapsApi api = new GoogleMapsApi();
     private int id;
 
     private String navn;
@@ -19,6 +21,9 @@ public class Arrangement implements Serializable {
     private Organiser organiser;
     private ArrayList<Race> raceList = new ArrayList<>();
     private ArrayList<Deltager> deltagerList = new ArrayList<>();
+    private String mapsUrl;
+
+
 
     public Arrangement(String navn, String beskrivelse, LocalDateTime startDate, LocalDateTime sluttDate, String lokasjon, Organiser organiser) {
         this.navn = navn;
@@ -27,6 +32,8 @@ public class Arrangement implements Serializable {
         this.sluttDate = sluttDate;
         this.lokasjon = lokasjon;
         this.organiser = organiser;
+        this.mapsUrl = api.getUrl(lokasjon);
+        System.out.println(mapsUrl);
         id = idTeller++;
         alleArrangement.add(this);
         System.out.println(id);
@@ -123,5 +130,8 @@ public class Arrangement implements Serializable {
                 temp = alleArrangement.get(i);
         }
         return temp;
+    }
+    public String getMapsUrl() {
+        return mapsUrl;
     }
 }
