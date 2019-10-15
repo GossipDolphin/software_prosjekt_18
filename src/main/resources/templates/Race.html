@@ -12,31 +12,25 @@
 <body>
 <nav>
     <ul>
-        <li><a href="/index">Home</a></li>
         <li><a href="/arrangementer">Arrangementer</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/signup">Registrer</a></li>
         <li><a href="about.asp">About</a></li>
     </ul>
 </nav>
-<article th:each = "arrangement: ${arrangement}">
-<strong>Arrangement Navn: </strong>
-    <p th:text="${arrangement.navn}"></p>
-    <strong>Beskrivelse: </strong>
-    <p th:text="${arrangement.beskrivelse}"></p>
-    <Strong>Lokasjon:</Strong>
-    <p th:text = "${arrangement.lokasjon}"></p>
-    <iframe th:each = "mapsurl: ${mapsurl}"width="600" height="450" frameborder="0" style="border:0"
-            th:src="${mapsurl}"></iframe><br />
-    <strong>Starttid: </strong>
-    <p th:text="${arrangement.startDate}"></p>
-    <strong>Slutt-tid: </strong>
-    <p th:text="${arrangement.sluttDate}"></p>
-    <Strong>Arrangør: </Strong>
-    <p th:text="${arrangement.organiser}"></p>
-    <strong>Races</strong>
-    <ul th:each="race : ${arrangement.raceList}">
-        <a th:href="@{'~/race/' + ${race.id}}" th:text="${race}"></a>
+<article>
+    <strong>Navn</strong>
+    <p th:text="${race.raceNavn}"></p>
+    <strong>Beskrivelse</strong>
+    <p th:text="${race.raceBeskrivelse}"></p>
+    <strong>race start</strong>
+    <p th:text="${race.raceStart}"></p>
+    <strong>race Slutt</strong>
+    <p th:text="${race.raceSlutt}"></p>
+    <button>Meld deg på</button><br>
+    <strong>Deltagere</strong>
+    <ul th:each="deltager : ${race.deltagere}">
+        <li th:text="${deltager}"></li>
     </ul>
 </article>
 
