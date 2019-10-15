@@ -1,4 +1,8 @@
 import org.testng.annotations.Test;
+import softwareengineering.model.Arrangement;
+import softwareengineering.model.Deltager;
+import softwareengineering.model.Organiser;
+import softwareengineering.model.Race;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,22 +26,22 @@ public class Deltagertest {
 
     @Test
     public void legg_meg_til_i_arragement(){
-        assertEquals(Kalle.meldMegPaaArangement(arrangement).toString(), arrangement.toString());
+        assertEquals(Kalle.joinArrangement(arrangement).toString(), arrangement.toString());
     }
 
     @Test
     public void hent_de_arrangementer_jeg_er_med_i(){
-        Kalle.meldMegPaaArangement(arrangement);
+        Kalle.joinArrangement(arrangement);
         ArrayList<Arrangement> listeMedArrangement = new ArrayList<>();
         listeMedArrangement.add(arrangement);
 
-        assertEquals(Kalle.HentDeArrangementerJegErMedI().toString(), listeMedArrangement.toString());
+        assertEquals(Kalle.getArrangementListe().toString(), listeMedArrangement.toString());
     }
     @Test
     public void meld_meg_paa_race_i_arrangement(){
         arrangement.getRaceList().add(race);
 
-        assertEquals(Kalle.meldMegPaaRaceIArrangement(arrangement, race).toString(), race.toString());
+        assertEquals(Kalle.joinRace(arrangement, race).toString(), race.toString());
     }
 
     @Test
@@ -50,18 +54,18 @@ public class Deltagertest {
 
         //Legger til et race i listen til arrangementet og melder petter på racet
         arrangement.getRaceList().add(race1);
-        petter.meldMegPaaArangement(arrangement);
-        petter.meldMegPaaRaceIArrangement(arrangement, race1);
+        petter.joinArrangement(arrangement);
+        petter.joinRace(arrangement, race1);
             assertEquals(arrangement.getRaceList().toString(), petter.hentMineRace().toString());
 
         //Legger til ENDA et race i listen til arrangementet og melder petter på racet
         arrangement.getRaceList().add(race2);
-        petter.meldMegPaaRaceIArrangement(arrangement, race2);
+        petter.joinRace(arrangement, race2);
             assertEquals(arrangement.getRaceList().toString(), petter.hentMineRace().toString());
 
         //melder petter på et annet arrangement og legger til petter i et race i det nye arrangementet
         arrangement2.getRaceList().add(race3);
-        petter.meldMegPaaRaceIArrangement(arrangement2, race3);
+        petter.joinRace(arrangement2, race3);
         // legger til det nye racet i listen til det forrige arrangementet for å få listen til å inneholde alle tre race
         arrangement.getRaceList().add(arrangement2.getRaceList().get(0));
         //sjekker så at petter får ut alle tre race og at det er racene som ligger i den nye listen
@@ -76,13 +80,13 @@ public class Deltagertest {
         Race race = new Race("løpløp", "test av løp", tid,tid);
         Race race2 = new Race("løpløp2", "test av løp2", tid,tid);
 
-        organiser.leggTilArrangementIListen(arrangement2);
-        organiser.leggTilRaceIArrangement(arrangement2, race);
-        organiser.leggTilRaceIArrangement(arrangement2, race2);
+        organiser.addArrangement(arrangement2);
+        organiser.addRace(arrangement2, race);
+        organiser.addRace(arrangement2, race2);
 
-        petter.meldMegPaaArangement(arrangement2);
-        petter.meldMegPaaRaceIArrangement(arrangement2, race);
-        petter.meldMegPaaRaceIArrangement(arrangement2, race2);
+        petter.joinArrangement(arrangement2);
+        petter.joinRace(arrangement2, race);
+        petter.joinRace(arrangement2, race2);
 
         organiser.leggTilResultatTilRace(race, petter, tid);
         organiser.leggTilResultatTilRace(race2, petter, tid);

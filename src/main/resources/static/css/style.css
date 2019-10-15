@@ -1,0 +1,18 @@
+*{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top:5px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+nav li{
+    display: inline;
+}
+ul{
+    list-style-type: none;
+}

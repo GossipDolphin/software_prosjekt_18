@@ -1,8 +1,11 @@
+package softwareengineering.model;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Race {
+public class Race implements Serializable {
     private String raceNavn;
     private String raceBeskrivelse;
     private LocalDateTime raceStart;
@@ -10,7 +13,7 @@ public class Race {
     private ArrayList<Deltager> deltagere = new ArrayList<>();
     private HashMap<Deltager, LocalDateTime> resultatMap = new HashMap<>();
 
-    Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt) {
+    public Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt) {
         this.raceNavn = raceNavn;
         this.raceBeskrivelse = raceBeskrivelse;
         this.raceStart = raceStart;
