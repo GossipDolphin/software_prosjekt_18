@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Deltager extends Bruker{
     private String fornavn;
@@ -63,4 +64,14 @@ public class Deltager extends Bruker{
     }
     public String getNavn_e(){
         return etternavn;    }
+
+    public ArrayList<HashMap> hentResultateneForMineRace() {
+        ArrayList<HashMap> listeMedResultater = new ArrayList<>();
+        for(Arrangement arrangement : this.getListeMedArrangementer()){
+            for(Race race : arrangement.getRaceList()){
+                listeMedResultater.add(race.getResultatMap());
+            }
+        }
+        return listeMedResultater;
+    }
 }

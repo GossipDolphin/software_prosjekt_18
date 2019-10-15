@@ -32,6 +32,14 @@ public class OrganiserTest {
             assertEquals(race.toString() ,organiser.leggTilRaceIArrangement(arrangement, race).toString());
     }
 
+    @Test
+    public void legg_til_resultat_i_race(){
+        Deltager petter = new Deltager("petter@gmail.com", "admin", "petter", "petterson");
+        Race race = new Race("race for the stuff","løp som bare faen rundt om kring", tid, tid);
+        petter.meldMegPaaRaceIArrangement(arrangement, race);
+        race.getResultatMap().put(petter, tid);
 
+            assertEquals(organiser.leggTilResultatTilRace(race, petter, tid),race.getResultatMap());
+    }
 
 }

@@ -3,6 +3,7 @@ import org.testng.annotations.Test;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -67,6 +68,30 @@ public class Deltagertest {
             assertEquals(arrangement.getRaceList().toString(), petter.hentMineRace().toString());
     }
 
+    @Test
+    public void hent_alle_resultater_til_race_jeg_er_med_i(){
+        Deltager petter = new Deltager("Test@gamil.com", "admin1", "petter", "Normann");
+        //Organiser organiser1 = new Organiser("test@gmail.com", "admin", "konrad");
+        Arrangement arrangement2 = new Arrangement("testarrangement", "testing", tid, tid,"halden", organiser);
+        Race race = new Race("løpløp", "test av løp", tid,tid);
+        Race race2 = new Race("løpløp2", "test av løp2", tid,tid);
+
+        organiser.leggTilArrangementIListen(arrangement2);
+        organiser.leggTilRaceIArrangement(arrangement2, race);
+        organiser.leggTilRaceIArrangement(arrangement2, race2);
+
+        petter.meldMegPaaArangement(arrangement2);
+        petter.meldMegPaaRaceIArrangement(arrangement2, race);
+        petter.meldMegPaaRaceIArrangement(arrangement2, race2);
+
+        organiser.leggTilResultatTilRace(race, petter, tid);
+        organiser.leggTilResultatTilRace(race2, petter, tid);
+        ArrayList<HashMap> testliste = new ArrayList<>();
+        testliste.add(race.getResultatMap());
+        testliste.add(race2.getResultatMap());
+
+        assertEquals(testliste.toString(), petter.hentResultateneForMineRace().toString());
 
 
+    }
 }

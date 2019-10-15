@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Organiser extends Bruker{
 
@@ -40,4 +41,12 @@ public class Organiser extends Bruker{
     }
 
 
+    public HashMap leggTilResultatTilRace(Race race, Deltager deltager, LocalDateTime tid) {
+        race.getResultatMap().put(deltager, tid);
+
+        HashMap<Deltager, LocalDateTime> hashMapsomSkalRetur;
+        hashMapsomSkalRetur=race.getResultatMap();
+        return hashMapsomSkalRetur;
+
+    }
 }
