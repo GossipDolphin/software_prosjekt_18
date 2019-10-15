@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import softwareengineering.model.Arrangement;
 
 @Controller
- public class indexController {
+ public class IndexController {
     @GetMapping("/")
     public String arrangementer(Model model){
         System.out.println("test");
