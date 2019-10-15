@@ -12,7 +12,7 @@
 <body>
 <nav class="meny">
     <ul>
-        <li><a href="/index">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/arrangementer">Arrangementer</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/signup">Registrer</a></li>
@@ -20,7 +20,7 @@
     </ul>
 </nav>
 <div class="flex-container">
-    <div class="flex-element" th:each = "arrangement: ${arrangement}">
+    <div class="flex-element" th:each = "arrangement: ${arrangementer}">
         <img src=""/>
         <h1 th:text="${arrangement.navn}"></h1>
 
