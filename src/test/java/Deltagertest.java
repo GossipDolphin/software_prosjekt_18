@@ -1,3 +1,5 @@
+
+
 import org.testng.annotations.Test;
 import softwareengineering.model.Arrangement;
 import softwareengineering.model.Deltager;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Test
 public class Deltagertest {
@@ -26,7 +29,8 @@ public class Deltagertest {
 
     @Test
     public void legg_meg_til_i_arragement(){
-        assertEquals(Kalle.joinArrangement(arrangement).toString(), arrangement.toString());
+        Kalle.joinArrangement(arrangement);
+        assertTrue(arrangement.getDeltagerList().contains(Kalle));
     }
 
     @Test
