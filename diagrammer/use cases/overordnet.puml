@@ -1,22 +1,31 @@
-
 @startuml
-
-
-:Bruker:
 left to right direction
-Bruker -- (Opprette brukerkonto)
-Bruker -- (Redigere brukerkonto)
-Bruker -- (Logge inn)
-Bruker -- (Finne arrangementer)
-Bruker -- (Melde seg på arrangementer)
-Bruker -- (Opprette arrangementer)
 
+rectangle Brukertyper{
 
-:Admin:
-(Opprette brukerkonto) -- Admin
+    :Deltaker:
+    :Arrangør:
+    :Admin:
+    :Uregistrert bruker: as Uregistrert
+
+}
+
+Admin --- (Finne Arrangementer)
+Arrangør --- (Finne Arrangementer)
+Deltaker --- (Finne Arrangementer)
+Uregistrert --- (Finne Arrangementer)
+
+(Redigere brukerkonto) -- Deltaker
+(Redigere brukerkonto) -- Arrangør
 (Redigere brukerkonto) -- Admin
-(Logge inn) -- Admin
-(Finne arrangementer) -- Admin
+(Opprette brukerkonto) -- Uregistrert
 
+(Logge inn) --- Deltaker
+(Logge inn) --- Arrangør
+(Logge inn) --- Admin
+
+(Melde seg på arrangementer) -- Deltaker
+
+Arrangør -- (Opprette arrangementer)
 
 @enduml

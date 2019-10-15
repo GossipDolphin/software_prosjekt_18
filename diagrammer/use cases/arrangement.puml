@@ -2,31 +2,47 @@
 left to right direction
 skinparam packageStyle rectangle
 
-rectangle arrangement {
 :Arrangør:
-note bottom of Arrangør
-    En bruker er arrangør for
-    arrangementet den oppretter
-end note
+:Deltaker:
+:Uregistrert bruker: as Uregistrert
+rectangle Arrangement {
 
-Arrangør -- (Se liste med løp)
-Arrangør -up- (Redigere løp)
-Arrangør -up- (Opprette løp)
-Arrangør -up- (Tildele brukere arrangør-status)
-Arrangør -- (Se deltakere)
-Arrangør -- (Invitere brukere)
-Arrangør -- (Se lokasjon)
+Arrangør -- (Redigere løp)
+Arrangør -- (Opprette løp)
+Arrangør -- (Redigere detaljer/info)
+Arrangør -- (Se navn på arrangement)
+Arrangør -- (Se arrangør)
 Arrangør -- (Se beskrivelse)
-Arrangør -up- (Redigere arrangement)
+Arrangør -- (Se tidspunkt)
+Arrangør -- (Se påmeldte deltakere)
+Arrangør -- (Se lokasjon)
+Arrangør -- (Invitere Deltakere)
+Arrangør -- (Se alle arrangementes løp)
+
+(Se navn på arrangement) -- Deltaker
+(Se navn på arrangement) --- Uregistrert
+
+(Se arrangør) -- Deltaker
+(Se arrangør) --- Uregistrert
+
+(Se beskrivelse) -- Deltaker
+(Se beskrivelse) -- Uregistrert
+
+(Se tidspunkt) -- Deltaker
+(Se tidspunkt) --- Uregistrert
 
 
-:Bruker:
+(Se lokasjon) -- Deltaker
+(Se lokasjon) --- Uregistrert
 
-(Se deltakere) -- Bruker
-(Invitere brukere) -- Bruker
-(Se liste med løp) -- Bruker
-(Se beskrivelse) -- Bruker
-(Melde seg på løp) -- Bruker
-(Se lokasjon) -- Bruker
+
+(Se alle arrangementes løp) -- Deltaker
+(Se alle arrangementes løp) --- Uregistrert
+
+
+(Invitere Deltakere) -- Deltaker
+(Se påmeldte deltakere) -- Deltaker
+(Melde seg på løp) -- Deltaker
+
 }
  @enduml
