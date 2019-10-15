@@ -1,3 +1,15 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+@font-face { font-family: Sporter;
+    src: url('./fonts/Sporter.ttf'); }
+h1{
+    font-family: Sporter;
+}
+p{
+    font-family:Open-sans;
+}
+
 *{
     padding-left: 10px;
     padding-right: 10px;
@@ -36,8 +48,9 @@ ul{
 
 .flex-element{
     background-color:#f2f2f2;
-    box-shadow:20px 20px 50px 15px grey;
+    box-shadow:10px 10px 15px 15px grey;
     border:1px solid #f2f2f2;
+    border-radius:10px;
     box-shadow: #f2f2f2;
     margin:20px;
     padding:30px;
