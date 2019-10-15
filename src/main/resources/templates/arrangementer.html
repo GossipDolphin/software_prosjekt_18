@@ -20,8 +20,8 @@
 </nav>
 <table><tr><th>Id</th><th>Navn</th><th>Beskrivelse</th><th>Sted</th><th>Starttid</th><th>Slutttid</th><th>Arrangør</th></tr>
     <tr th:each="arrangement: ${arrangementer}">
+        <td><a th:href="@{'arrangementer/' + ${arrangement.id}}" th:text="${arrangement.id}"></a></td>
         <td th:text="${arrangement.navn}"></td>
-        <td th:text="${arrangement.id}"></td>
         <td th:text="${arrangement.beskrivelse}"></td>
         <td th:text="${arrangement.lokasjon}"></td>
         <td th:text="${arrangement.startDate}"></td>
