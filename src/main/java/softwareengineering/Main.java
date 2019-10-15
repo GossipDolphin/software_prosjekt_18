@@ -22,7 +22,10 @@ public class Main {
         Ola.addArrangement(HelseArrangement);
         Arrangement skiLoep = Ola.opprettArrangement("Halden Skirenn", "Langrenn",randomtid,randomtid,"Walkers gate 4, 1771 Halden");
         Race race1 = new Race("ungdom 05 løp1" ,"raceracerace", randomtid, randomtid);
+        Race race2 = new Race("ungdom 05 løp2" ,"raceracerace", randomtid, randomtid);
         Ola.addRace(HelseArrangement, race1);
+        Ola.addRace(HelseArrangement, race2);
+
         SpringApplication.run(Main.class);
     }
 }
