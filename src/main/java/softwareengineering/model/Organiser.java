@@ -24,16 +24,10 @@ public class Organiser extends Bruker implements Serializable {
         return temp;
     }
 
-    public void addRace(Arrangement arrangementSentMed, Race race) {
+    public Race addRace(Arrangement arrangementSentMed, Race race) {
+        arrangementSentMed.getRaceList().add(race);
+        return arrangementSentMed.getRaceList().get(arrangementSentMed.getRaceList().size()-1);
 
-        Race racet = null;
-        for (Arrangement arrangementetIListen : this.arrangementListe) {
-            if (arrangementetIListen.equals(arrangementSentMed)) {
-                arrangementetIListen.getRaceList().add(race);
-                racet = race;
-            }
-        }
-        //return racet;
     }
 
     public HashMap leggTilResultatTilRace(Race race, Deltager deltager, LocalDateTime tid) {
