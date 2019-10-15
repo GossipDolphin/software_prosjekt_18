@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-public class loginController {
+public class LoginController {
 
     @GetMapping("/login")
             public String login(){

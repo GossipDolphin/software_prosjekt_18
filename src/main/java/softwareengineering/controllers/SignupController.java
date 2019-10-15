@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-public class signupController {
+public class SignupController {
     @GetMapping("/signup")
     public String signup(){
         return "signup.html";
