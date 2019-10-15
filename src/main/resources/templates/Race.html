@@ -27,7 +27,9 @@
     <p th:text="${race.raceStart}"></p>
     <strong>race Slutt</strong>
     <p th:text="${race.raceSlutt}"></p>
-    <button>Meld deg på</button><br>
+    <form>
+    <button type="submit">Meld deg på</button><br>
+    </form>
     <strong>Deltagere</strong>
     <ul th:each="deltager : ${race.deltagere}">
         <li th:text="${deltager}"></li>
