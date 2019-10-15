@@ -1,4 +1,6 @@
 import org.testng.annotations.Test;
+import softwareengineering.model.Deltager;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
