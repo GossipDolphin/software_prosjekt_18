@@ -24,7 +24,7 @@ public class Organiser extends Bruker implements Serializable {
         return temp;
     }
 
-    public Race addRace(Arrangement arrangementSentMed, Race race) {
+    public void addRace(Arrangement arrangementSentMed, Race race) {
 
         Race racet = null;
         for (Arrangement arrangementetIListen : this.arrangementListe) {
@@ -33,7 +33,7 @@ public class Organiser extends Bruker implements Serializable {
                 racet = race;
             }
         }
-        return racet;
+        //return racet;
     }
 
     public HashMap leggTilResultatTilRace(Race race, Deltager deltager, LocalDateTime tid) {
@@ -52,14 +52,4 @@ public class Organiser extends Bruker implements Serializable {
     public void setArrangementListe(ArrayList<Arrangement> arrangementListe) {
         this.arrangementListe = arrangementListe;
     }
-    public HashMap leggTilResultatTilRace(Race race, Deltager deltager, LocalDateTime tid) {
-        race.getResultatMap().put(deltager, tid);
-
-        HashMap<Deltager, LocalDateTime> hashMapsomSkalRetur;
-        hashMapsomSkalRetur=race.getResultatMap();
-        return hashMapsomSkalRetur;
-
-    }
-
-
 }

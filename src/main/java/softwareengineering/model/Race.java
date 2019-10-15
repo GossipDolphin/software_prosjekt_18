@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Race implements Serializable {
+public class Race implements Serializable  {
     private String raceNavn;
     private String raceBeskrivelse;
     private LocalDateTime raceStart;
