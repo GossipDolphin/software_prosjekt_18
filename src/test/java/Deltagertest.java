@@ -90,8 +90,8 @@ public class Deltagertest {
         testliste.add(race.getResultatMap());
         testliste.add(race2.getResultatMap());
 
+        System.out.println(petter.hentResultateneForMineRace());
+
         assertEquals(testliste.toString(), petter.hentResultateneForMineRace().toString());
-
-
     }
 }
