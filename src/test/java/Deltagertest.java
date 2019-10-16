@@ -31,6 +31,7 @@ public class Deltagertest {
     public void legg_meg_til_i_arragement(){
         Kalle.joinArrangement(arrangement);
         assertTrue(arrangement.getDeltagerList().contains(Kalle));
+        assertTrue(Kalle.getArrangementListe().contains(arrangement));
     }
 
     @Test
