@@ -34,14 +34,6 @@ public class Deltagertest {
     }
 
     @Test
-    public void hent_de_arrangementer_jeg_er_med_i(){
-        Kalle.joinArrangement(arrangement);
-        ArrayList<Arrangement> listeMedArrangement = new ArrayList<>();
-        listeMedArrangement.add(arrangement);
-
-        assertEquals(Kalle.getArrangementListe().toString(), listeMedArrangement.toString());
-    }
-    @Test
     public void meld_meg_paa_race_i_arrangement(){
         arrangement.getRaceList().add(race);
 
