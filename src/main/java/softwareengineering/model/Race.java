@@ -8,17 +8,19 @@ import java.util.List;
 
 public class Race implements Serializable {
     public static List<Race> alleRace = new ArrayList<>();
+    private Arrangement arrangement;
     private String raceNavn;
     private String raceBeskrivelse;
     private LocalDateTime raceStart;
     private LocalDateTime raceSlutt;
     private ArrayList<Deltager> deltagere = new ArrayList<>();
     private HashMap<Deltager, LocalDateTime> resultatMap = new HashMap<>();
-    public static int idTeller = 0;
+    public static int idTeller = 10;
     private int id;
 
-    public Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt) {
+    public Race(String raceNavn, String raceBeskrivelse, LocalDateTime raceStart, LocalDateTime raceSlutt, Arrangement arrangement) {
         this.raceNavn = raceNavn;
+        this.arrangement = arrangement;
         this.raceBeskrivelse = raceBeskrivelse;
         this.raceStart = raceStart;
         this.raceSlutt = raceSlutt;
@@ -26,7 +28,7 @@ public class Race implements Serializable {
         alleRace.add(this);
     }
 
-    public static Race getAlleRace(int id){
+    public static Race getRaceById(int id){
         Race temp = null;
         for(int i = 0;i<alleRace.size();i++)
         {
@@ -105,4 +107,7 @@ public class Race implements Serializable {
         this.id = id;
     }
 
+    public Arrangement getArrangement() {
+        return arrangement;
+    }
 }

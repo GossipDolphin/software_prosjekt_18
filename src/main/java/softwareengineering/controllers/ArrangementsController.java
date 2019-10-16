@@ -25,10 +25,5 @@ public class ArrangementsController {
         return "arrangement.html";
     }
 
-    @GetMapping("/race/{raceId}")
-    public String Race(@PathVariable String raceId, Model model){
-        int parsedRaceId = Integer.parseInt(raceId);
-        model.addAttribute("race", Race.getAlleRace(parsedRaceId));
-        return "Race.html";
-    }
+
 }

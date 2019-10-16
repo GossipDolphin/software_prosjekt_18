@@ -24,7 +24,7 @@ public class Deltagertest {
     private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
     private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
-    private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid);
+    private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid,arrangement);
 
 
     @Test
@@ -51,9 +51,9 @@ public class Deltagertest {
     @Test
     public void hent_de_race_jeg_er_med_i(){
         Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson");
-        Race race1 = new Race("race1 for the stuff","dankestrace",tid,tid);
-        Race race2 = new Race("race2 for the stuff","dankestrace",tid,tid);
-        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid);
+        Race race1 = new Race("race1 for the stuff","dankestrace",tid,tid,arrangement);
+        Race race2 = new Race("race2 for the stuff","dankestrace",tid,tid,arrangement);
+        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid,arrangement);
         Arrangement arrangement2 = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
 
         //Legger til et race i listen til arrangementet og melder petter på racet
@@ -81,8 +81,8 @@ public class Deltagertest {
         Deltager petter = new Deltager("Test@gamil.com", "admin1", "petter", "Normann");
         //Organiser organiser1 = new Organiser("test@gmail.com", "admin", "konrad");
         Arrangement arrangement2 = new Arrangement("testarrangement", "testing", tid, tid,"halden", organiser);
-        Race race = new Race("løpløp", "test av løp", tid,tid);
-        Race race2 = new Race("løpløp2", "test av løp2", tid,tid);
+        Race race = new Race("løpløp", "test av løp", tid,tid,arrangement2);
+        Race race2 = new Race("løpløp2", "test av løp2", tid,tid,arrangement2);
 
         organiser.addArrangement(arrangement2);
         organiser.addRace(arrangement2, race);

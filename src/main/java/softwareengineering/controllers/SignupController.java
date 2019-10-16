@@ -20,6 +20,7 @@ public class SignupController {
     public String signup(){
         return "signup.html";
     }
+
     BrukerCookieUtility bcu = new BrukerCookieUtility();
     @RequestMapping(value = "/signup")
     public String signupInput(@RequestParam("bruker") String bruker, @RequestParam("password") String password, @RequestParam(value = "navn",required = false) String navn,@RequestParam(value = "fornavn", required = false)

@@ -9,16 +9,19 @@ import java.util.Map;
 import java.util.Random;
 
 public class BrukerCookieUtility {
-    private Map<Cookie,Bruker> cookieMap = new HashMap<>();
+    private static Map<String,Bruker> cookieMap = new HashMap<>();
 
     public Bruker checkCookie(Cookie cookie) throws IOException, ClassNotFoundException {
+        System.out.println("input value" + cookie.getValue());
+        System.out.println("map value" + cookieMap.get(cookie.getValue()));
 
-        for(Map.Entry<Cookie,Bruker> entry: cookieMap.entrySet())
+        for(Map.Entry<String,Bruker> entry: cookieMap.entrySet())
         {
-            if(entry.getKey()==cookie)
+            System.out.println("looping: " + entry.getKey() + " should match " + cookieMap.get(cookie.getValue()));
+            if(entry.getKey()==cookie.getValue())
                 return entry.getValue();
         }
-        return cookieMap.get(cookie);
+        return cookieMap.get(cookie.getValue());
     }
 
     public Cookie BrukerCookie(Bruker bruker) throws IOException {
@@ -27,7 +30,8 @@ public class BrukerCookieUtility {
         so.writeObject(bruker);
         so.flush();*/
         Cookie cookie = new Cookie("bruker",randomString(20));
-        cookieMap.put(cookie,bruker);
+        cookieMap.put(cookie.getValue(),bruker);
+        System.out.println("t" + cookieMap.get(cookie.getValue()));
         cookie.setMaxAge(-1);
         cookie.setPath("/");
         return cookie;

@@ -32,7 +32,7 @@ public class OrganiserTest {
     public void test_legg_til_race_i_arrangement() {
         Arrangement arrangement = organiser.opprettArrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden");
         organiser.addArrangement(arrangement);
-        Race race = new Race("race number one","raceracerace", LocalDateTime.now(), LocalDateTime.now());
+        Race race = new Race("race number one","raceracerace", LocalDateTime.now(), LocalDateTime.now(),arrangement);
 
            assertEquals(race.toString() ,organiser.addRace(arrangement, race).toString());
     }
@@ -40,7 +40,7 @@ public class OrganiserTest {
     @Test
     public void legg_til_resultat_i_race(){
         Deltager petter = new Deltager("petter@gmail.com", "admin", "petter", "petterson");
-        Race race = new Race("race for the stuff","løp som bare faen rundt om kring", tid, tid);
+        Race race = new Race("race for the stuff","løp som bare faen rundt om kring", tid, tid,arrangement);
         petter.joinRace(arrangement, race);
         race.getResultatMap().put(petter, tid);
 

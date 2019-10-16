@@ -22,9 +22,9 @@ public class Main {
         Arrangement HelseArrangement = Ola.opprettArrangement("Helse arrangement","dankestrace", randomtid, randomtid, "BRA Veien 6b, 1783 Halden");
         Ola.addArrangement(HelseArrangement);
         Arrangement skiLoep = Ola.opprettArrangement("Halden Skirenn", "Langrenn",randomtid,randomtid,"Walkers gate 4, 1771 Halden");
-        Race race1 = new Race("ungdom 05 løp1" ,"raceracerace", randomtid, randomtid);
-        Race race2 = new Race("ungdom 05 løp2" ,"raceracerace", randomtid, randomtid);
-        Race race3 = new Race("barneskiren 05 løp2" ,"Petter Northug knuser alle kidza", randomtid, randomtid);
+        Race race1 = new Race("ungdom 05 løp1" ,"raceracerace", randomtid, randomtid, skiLoep);
+        Race race2 = new Race("ungdom 05 løp2" ,"raceracerace", randomtid, randomtid,skiLoep);
+        Race race3 = new Race("barneskiren 05 løp2" ,"Petter Northug knuser alle kidza", randomtid, randomtid,skiLoep);
         Ola.addRace(HelseArrangement, race1);
         Ola.addRace(HelseArrangement, race2);
         Ola.addRace(skiLoep, race3);
