@@ -16,12 +16,9 @@ public class Deltager extends Bruker implements Serializable {
         etternavn = navn_e;
     }
 
-
-
-    public Arrangement joinArrangement(Arrangement arrangement) {
+    public void joinArrangement(Arrangement arrangement) {
         arrangement.getDeltagerList().add(this);
         this.getArrangementListe().add(arrangement);
-        return arrangement;
     }
 
     public ArrayList<Arrangement> getArrangementListe() {
