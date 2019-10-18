@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 import softwareengineering.model.Bruker;
 import softwareengineering.utilities.BrukerCookieUtility;
 
@@ -21,12 +23,18 @@ public class LoginController {
     }
     BrukerCookieUtility bcu = new BrukerCookieUtility();
     @RequestMapping(value = "/login")
-    public String loginInput(@RequestParam("bruker") String bruker, @RequestParam("password") String password, HttpServletResponse response, Model model) throws IOException {
-        Cookie cooks = new Cookie("test","test");
-        Bruker temp = Bruker.login(bruker,password);
-        System.out.println(temp.getNavn() + " logged in");
-        if(temp!=null)
-            response.addCookie(bcu.BrukerCookie(temp));
-        return "login.html";
+    public RedirectView loginInput(@RequestParam("bruker") String bruker, @RequestParam("password") String password, HttpServletResponse response, Model model, final RedirectAttributes redirectAttributes) throws IOException {
+        try {
+            Cookie cooks = new Cookie("test", "test");
+            Bruker temp = Bruker.login(bruker, password);
+            System.out.println(temp.getNavn() + " logged in");
+            if (temp != null)
+                response.addCookie(bcu.BrukerCookie(temp));
+        }
+        catch (Exception e){
+            return new RedirectView("loginfeilet");
+        }
+            return new RedirectView("arrangementer");
+
     }
 }
