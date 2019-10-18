@@ -37,8 +37,8 @@ public class Deltagertest {
     @Test
     public void meld_meg_paa_race_i_arrangement(){
         arrangement.getRaceList().add(race);
-
-        assertEquals(Kalle.joinRace(arrangement, race).toString(), race.toString());
+        Kalle.joinRace(arrangement, race);
+        assertTrue(race.getDeltagere().contains(Kalle));
     }
 
     @Test

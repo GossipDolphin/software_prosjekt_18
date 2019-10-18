@@ -29,16 +29,12 @@ public class Deltager extends Bruker implements Serializable {
         this.arrangementListe = arrangementListe;
     }
 
-
-    public Race joinRace(Arrangement arrangement, Race race) {
-        Race racetSomSkalReturners = null;
+    public void joinRace(Arrangement arrangement, Race race) {
         for (Race racet : arrangement.getRaceList()){
             if (racet.equals(race)){
                 race.getDeltagere().add(this);
-                racetSomSkalReturners = racet;
             }
         }
-        return racetSomSkalReturners;
     }
 
     public ArrayList<Race> hentMineRace() {
