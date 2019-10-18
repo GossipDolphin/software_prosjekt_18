@@ -39,6 +39,16 @@ public class Arrangement implements Serializable {
         System.out.println(id);
     }
 
+    public void updateDeltagerList() {
+        for (Race races : raceList) {
+            for (Deltager deltagere : races.getDeltagere()) {
+                if (!deltagerList.contains(deltagere)) {
+                    deltagerList.add(deltagere);
+                }
+            }
+        }
+    }
+
     @Override
     public String toString(){
         return navn + "\n" + startDate + "\n" + sluttDate + "\n" + lokasjon + "\n" + organiser.toString() + "\n" + raceList.toString();
@@ -134,4 +144,5 @@ public class Arrangement implements Serializable {
     public String getMapsUrl() {
         return mapsUrl;
     }
+
 }
