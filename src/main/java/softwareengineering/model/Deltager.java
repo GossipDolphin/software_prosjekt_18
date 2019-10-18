@@ -35,6 +35,7 @@ public class Deltager extends Bruker implements Serializable {
                 race.getDeltagere().add(this);
             }
         }
+        arrangement.updateDeltagerList();
     }
 
     public ArrayList<Race> hentMineRace() {
