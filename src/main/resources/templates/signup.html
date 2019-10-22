@@ -18,23 +18,56 @@
             kontoType = document.signup.type;
             if(kontoType.value=="deltager")
             document.getElementById("navn").innerHTML = "<li>Fornavn</li>" +
-                "<li><input type=\"text\" name=\"fornavn\"></li>" +
+                "<li><input type=\"text\" name=\"fornavn\" id='fornavn'></li>" +
                 "<li>Etternavn</li>" +
-                "<li><input type=\"text\" name=\"etternavn\"></li>" +
+                "<li><input type=\"text\" name=\"etternavn\" id='etternavn'></li>" +
                 "<li>Email</li>" +
                 "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
                 "<li>Passord</li>" +
-                "<li><input type=\"password\" name=\"password\" id=\"password\"></li>";
+                "<li><input type=\"password\" name=\"password\" id=\"password\"></li>" +
+                "<li><input type=\"button\" onclick=\"alertSignupDeltager()\" value='Registrer'></li>";
+
             if(kontoType.value=="organiser")
-                document.getElementById("navn").innerHTML = "<li>Navn</li>" +
-                "<li><input type=\"text\" name=\"navn\"></li>" +
-                "<li>Email</li>" +
-                "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
-                "<li>Passord</li>" +
-                "<li><input type=\"password\" name=\"password\" id=\"password\"></li>";
+                document.getElementById("navn").innerHTML = "<li>Navn arrangør</li>" +
+                    "<li><input type=\"text\" name=\"navn\" id='navnOrganiser'></li>" +
+                    "<li>Email</li>" +
+                    "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
+                    "<li>Passord</li>" +
+                    "<li><input type=\"password\" name=\"password\" id=\"password\"></li>" +
+                    "<li><input type=\"button\" onclick=\"alertSignupOrganiser()\" value='Registrer'></li>";
         }
-        function alertSignup() {
-            alert("takk for registreringen");
+        function alertSignupDeltager() {
+            if(document.getElementById("fornavn").value===""){
+                alert("ugylde fornavn");
+            }
+            if(document.getElementById("etternavn").value===""){
+                alert("ugylde etternavn");
+            }
+            if(document.getElementById("bruker").value===""){
+                alert("ugylde email");
+            }
+            if(document.getElementById("password").value===""){
+                alert("ugylde passord");
+            }
+            else {
+                document.signup.submit();
+                alert("takk for registreringen");
+            }
+        }
+        function alertSignupOrganiser() {
+            if(document.getElementById("navnOrganiser").value===""){
+                alert("ugylde navn");
+            }
+            if(document.getElementById("bruker").value===""){
+                alert("ugylde email");
+            }
+            if(document.getElementById("password").value===""){
+                alert("ugylde passord");
+            }
+            else {
+                document.signup.submit();
+                alert("takk for registreringen");
+            }
         }
     </script>
 </head>
@@ -54,8 +87,6 @@
         <li><input type="radio" name="type" value="deltager" onchange="radChange()"> Deltager<br>
             <input type="radio" name="type" value="organiser" onchange="radChange()"> Arrangør<br></li>
         <div id="navn"></div>
-        <li><input type="submit" onclick="alertSignup()"></li>
-
     </ul>
 </form>
 </body>
