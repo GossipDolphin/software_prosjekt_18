@@ -27,7 +27,6 @@ public class Organiser extends Bruker implements Serializable {
     public Race addRace(Arrangement arrangementSentMed, Race race) {
         arrangementSentMed.getRaceList().add(race);
         return arrangementSentMed.getRaceList().get(arrangementSentMed.getRaceList().size()-1);
-
     }
 
     public HashMap leggTilResultatTilRace(Race race, Deltager deltager, LocalDateTime tid) {

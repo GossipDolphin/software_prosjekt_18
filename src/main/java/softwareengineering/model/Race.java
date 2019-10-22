@@ -25,7 +25,7 @@ public class Race implements Serializable {
         this.raceStart = raceStart;
         this.raceSlutt = raceSlutt;
         id = idTeller++;
-        arrangement.getRaceList().add(this);
+        //arrangement.getRaceList().add(this);
         alleRace.add(this);
     }
 
