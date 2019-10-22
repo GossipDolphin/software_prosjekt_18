@@ -1,6 +1,7 @@
-package softwareengineering.model;
-
 import org.junit.jupiter.api.Test;
+import softwareengineering.model.Arrangement;
+import softwareengineering.model.Organiser;
+import softwareengineering.model.Race;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
