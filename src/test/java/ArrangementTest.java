@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import softwareengineering.model.Arrangement;
 import softwareengineering.model.Deltager;
 import softwareengineering.model.Organiser;
@@ -10,7 +10,8 @@ import java.time.format.DateTimeFormatter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class ArrangementTest {
+@Test
+public class ArrangementTest {
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private String randomTid = "2019-09-09 10:30";

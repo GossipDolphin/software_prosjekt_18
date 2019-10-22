@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 import softwareengineering.model.Arrangement;
 import softwareengineering.model.Organiser;
 import softwareengineering.model.Race;
@@ -6,9 +6,10 @@ import softwareengineering.model.Race;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RaceTest {
+@Test
+public class RaceTest {
 
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private String randomTid = "2020-12-09 08:30";
