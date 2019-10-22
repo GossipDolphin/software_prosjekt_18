@@ -6,9 +6,9 @@ import softwareengineering.model.Race;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ArrangementTest {
 
@@ -25,5 +25,11 @@ class ArrangementTest {
         arrangement.getRaceList().add(race);
         Kalle.joinRace(arrangement, race);
         assertTrue(arrangement.getDeltagerList().contains(Kalle));
+    }
+
+    @Test
+    void hent_arrangement_med_id(){
+        int id = arrangement.getId();
+        assertEquals(arrangement, Arrangement.getArrangementById(id));
     }
 }
