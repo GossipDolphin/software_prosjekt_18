@@ -13,16 +13,25 @@
             document.onload = function()
         {
             kontoType = document.signup.type;
-        }
+        };
         function radChange() {
             kontoType = document.signup.type;
             if(kontoType.value=="deltager")
             document.getElementById("navn").innerHTML = "<li>Fornavn</li>" +
                 "<li><input type=\"text\" name=\"fornavn\"></li>" +
                 "<li>Etternavn</li>" +
-                "<li><input type=\"text\" name=\"etternavn\"></li>";
+                "<li><input type=\"text\" name=\"etternavn\"></li>" +
+                "<li>Email</li>" +
+                "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
+                "<li>Passord</li>" +
+                "<li><input type=\"password\" name=\"password\" id=\"password\"></li>";
             if(kontoType.value=="organiser")
-                document.getElementById("navn").innerHTML = "<li>Navn</li><li><input type=\"text\" name=\"navn\"></li>";
+                document.getElementById("navn").innerHTML = "<li>Navn</li>" +
+                "<li><input type=\"text\" name=\"navn\"></li>" +
+                "<li>Email</li>" +
+                "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
+                "<li>Passord</li>" +
+                "<li><input type=\"password\" name=\"password\" id=\"password\"></li>";
         }
         function alertSignup() {
             alert("takk for registreringen");
@@ -46,11 +55,7 @@
         <li><input type="radio" name="type" value="deltager" onchange="radChange()"> Deltager<br>
             <input type="radio" name="type" value="organiser" onchange="radChange()"> Arrangør<br></li>
         <div id="navn"></div>
-        <li>Email</li>
-        <li><input type="email" id="bruker" name="bruker"></li>
-        <li>Password</li><li><input type="password" name="password" id="password">
         <li><input type="submit" onclick="alertSignup()"></li>
-        </li>
 
     </ul>
 </form>
