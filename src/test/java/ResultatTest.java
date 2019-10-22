@@ -1,11 +1,7 @@
 import org.testng.annotations.Test;
 
-@Test
-public class ResultatTest {
+    @Test
+    public class ResultatTest {
 
 
-
-
-
-
-}
+    }
