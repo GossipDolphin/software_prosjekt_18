@@ -19,20 +19,19 @@
     </ul>
 </nav>
 <div class="flex-container">
-    <div class="flex-element" style="height:300px" th:each = "arrangement: ${arrangementer}">
+    <a class="flex-element" th:each = "arrangement: ${arrangementer}" th:href="@{'arrangementer/' + ${arrangement.id}}">
         <div class="wtfLeft">
-        <img src=""/>
-        <h1 th:text="${arrangement.navn}"></h1>
-
-        <p th:text="${arrangement.beskrivelse}"></p>
-        <button class="button-home">Meld deg på!</button>
+            <h2 th:text="${arrangement.navn}"></h2>
+            <p th:text="${arrangement.beskrivelse}"></p>
+            <strong>Start dato</strong>
+            <p th:text="${arrangement.startDate}"></p>
+            <strong>Slutt dato</strong>
+            <p th:text="${arrangement.sluttDate}"></p>
         </div>
         <div class="wtfRight">
-        <iframe width="70%" height="100%" frameborder="0" style="border:0"
-                                                    th:src="${arrangement.mapsUrl}"></iframe>
+        <iframe frameborder="0" style="border:0" th:src="${arrangement.mapsUrl}"></iframe>
         </div>
-    </div>
-
+    </a>
 </div>
 
 </body>

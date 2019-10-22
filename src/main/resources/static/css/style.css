@@ -52,15 +52,12 @@ nav.meny {
 
 .meny li a:hover {
     text-decoration:none;
-    color: #7291a1;
+    color: gray;
 }
 
 .meny li:hover {
 
-    border: 1px solid #7291a1;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 20px;
+    text-shadow: black;
 }
 
 ul {
@@ -79,22 +76,32 @@ ul {
 
 .flex-element {
     background-color: #f2f2f2;
-    box-shadow: 10px 10px 10px 10px grey;
+    box-shadow: 5px 5px 5px 5px grey;
     border: 1px solid #f2f2f2;
-    width: 40%;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 30px;
+    width: 70vw;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
     text-align: center;
     overflow: hidden;
+    height: 300px;
+}
+.flex-element:hover{
+    box-shadow: 7px 7px 7px 7px grey;
 }
 .wtfLeft{
     float: left;
-    width: 40%;
+    width: 50%;
+    text-align: center;
+    color: #568096;
 }
 .wtfRight{
     float: right;
-    width:60%;
+    width:50%;
     padding: 0px;
     margin: 0px;
 }
+iframe{
+    height: 250px;
+}
+
