@@ -39,15 +39,7 @@ public class Arrangement implements Serializable {
         System.out.println(id);
     }
 
-    public void updateDeltagerList() {
-        for (Race races : raceList) {
-            for (Deltager deltagere : races.getDeltagere()) {
-                if (!deltagerList.contains(deltagere)) {
-                    deltagerList.add(deltagere);
-                }
-            }
-        }
-    }
+
 
     @Override
     public String toString(){
@@ -110,6 +102,7 @@ public class Arrangement implements Serializable {
     }
 
     public ArrayList<Deltager> getDeltagerList() {
+        updateDeltagerList();
         return deltagerList;
     }
 
@@ -143,6 +136,16 @@ public class Arrangement implements Serializable {
     }
     public String getMapsUrl() {
         return mapsUrl;
+    }
+
+    public void updateDeltagerList() {
+        for (Race races : raceList) {
+            for (Deltager deltagere : races.getDeltagere()) {
+                if (!deltagerList.contains(deltagere)) {
+                    deltagerList.add(deltagere);
+                }
+            }
+        }
     }
 
 }

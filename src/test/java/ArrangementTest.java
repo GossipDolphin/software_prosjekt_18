@@ -24,7 +24,8 @@ public class ArrangementTest {
     @Test
     void oppdater_deltagere() {
         arrangement.getRaceList().add(race);
-        Kalle.joinRace(arrangement, race);
+        Kalle.joinRace(race);
+        System.out.println(arrangement.getDeltagerList());
         assertTrue(arrangement.getDeltagerList().contains(Kalle));
     }
 

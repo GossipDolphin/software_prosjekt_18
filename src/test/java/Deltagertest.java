@@ -37,7 +37,7 @@ public class Deltagertest {
     @Test
     public void meld_meg_paa_race_i_arrangement(){
         arrangement.getRaceList().add(race);
-        Kalle.joinRace(arrangement, race);
+        Kalle.joinRace(race);
         assertTrue(race.getDeltagere().contains(Kalle));
     }
 
@@ -52,17 +52,17 @@ public class Deltagertest {
         //Legger til et race i listen til arrangementet og melder petter på racet
         arrangement.getRaceList().add(race1);
         petter.joinArrangement(arrangement);
-        petter.joinRace(arrangement, race1);
+        petter.joinRace(race1);
             assertEquals(arrangement.getRaceList().toString(), petter.hentMineRace().toString());
 
         //Legger til ENDA et race i listen til arrangementet og melder petter på racet
         arrangement.getRaceList().add(race2);
-        petter.joinRace(arrangement, race2);
+        petter.joinRace(race2);
             assertEquals(arrangement.getRaceList().toString(), petter.hentMineRace().toString());
 
         //melder petter på et annet arrangement og legger til petter i et race i det nye arrangementet
         arrangement2.getRaceList().add(race3);
-        petter.joinRace(arrangement2, race3);
+        petter.joinRace(race3);
         // legger til det nye racet i listen til det forrige arrangementet for å få listen til å inneholde alle tre race
         arrangement.getRaceList().add(arrangement2.getRaceList().get(0));
         //sjekker så at petter får ut alle tre race og at det er racene som ligger i den nye listen
@@ -82,8 +82,8 @@ public class Deltagertest {
         organiser.addRace(arrangement2, race2);
 
         petter.joinArrangement(arrangement2);
-        petter.joinRace(arrangement2, race);
-        petter.joinRace(arrangement2, race2);
+        petter.joinRace(race);
+        petter.joinRace(race2);
 
         organiser.leggTilResultatTilRace(race, petter, tid);
         organiser.leggTilResultatTilRace(race2, petter, tid);

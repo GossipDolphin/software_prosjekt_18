@@ -42,7 +42,7 @@ BrukerCookieUtility brukerCookieUtility = new BrukerCookieUtility();
         if(brukertemp!=null && brukertemp instanceof Deltager) {
             System.out.println("temp2" + brukertemp);
             Deltager temp = (Deltager)brukertemp;
-            temp.joinRace(Race.getRaceById(parsedRaceId).getArrangement(),Race.getRaceById(parsedRaceId));
+            temp.joinRace(Race.getRaceById(parsedRaceId)); // har tatt vekk første argument: Race.getRaceById(parsedRaceId).getArrangement(),
         }
         return "Race.html";
     }

@@ -29,7 +29,7 @@ public class Main {
         Ola.addRace(skiLoep, race3);
 
         petter.joinArrangement(HelseArrangement);
-        petter.joinRace(HelseArrangement, race1);
+        petter.joinRace(race1);
 
         SpringApplication.run(Main.class);
     }
