@@ -47,4 +47,23 @@ public class ArrangementTest {
         assertEquals(expected, arrangement.getRaceList());
     }
 
+    @Test
+    void Arrangement_blir_lagt_til_en_og_bare_en_gang_i_lista_over_alle_arrangementer_naar_arrangementet_opprettes() {
+        Arrangement dummyAarr = new Arrangement("navnemann", "løping", tid, tid, "Gjøvik", organiser);
+        ArrayList<Arrangement> excpectedValue = new ArrayList<>();
+        ArrayList<Arrangement> actualValue = new ArrayList<>();
+        int antallGangerArrangementetErLagtTil = 0;
+        excpectedValue.add(dummyAarr);
+
+
+        for (Arrangement arrangement : Arrangement.getAlleArrangement()) {
+            if (arrangement == dummyAarr) {
+                antallGangerArrangementetErLagtTil++;
+                actualValue.add(arrangement);
+            }
+        }
+        System.out.println("Arrangementet er lagt til " + antallGangerArrangementetErLagtTil + " gang(er).");
+        assertEquals(excpectedValue, actualValue);
+    }
+
 }
