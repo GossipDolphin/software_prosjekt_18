@@ -36,7 +36,8 @@ public class Arrangement implements Serializable {
         System.out.println(mapsUrl);
         id = idTeller++;
         alleArrangement.add(this);
-        System.out.println(id);
+        organiser.getArrangementListe().add(this);
+
     }
 
 

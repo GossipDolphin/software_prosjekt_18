@@ -23,6 +23,7 @@ public class Deltagertest {
     private ArrayList<Race> racelist = new ArrayList<>();
     private ArrayList<Deltager> listeMedDeltagere = new ArrayList<>();
     private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
+    private Arrangement arrangement2 = new Arrangement("testarrangement", "testing", tid, tid,"halden", organiser);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
     private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid,arrangement);
 
@@ -69,30 +70,32 @@ public class Deltagertest {
             assertEquals(arrangement.getRaceList().toString(), petter.hentMineRace().toString());
     }
 
+    private Race race1 = new Race("løpløp", "test av løp", tid,tid,arrangement2);
+    private Race race2 = new Race("løpløp2", "test av løp2", tid,tid,arrangement2);
+    private Deltager petter = new Deltager("Test@gamil.com", "admin1", "petter", "Normann");
+
     @Test
     public void hent_alle_resultater_til_race_jeg_er_med_i(){
-        Deltager petter = new Deltager("Test@gamil.com", "admin1", "petter", "Normann");
         //Organiser organiser1 = new Organiser("test@gmail.com", "admin", "konrad");
-        Arrangement arrangement2 = new Arrangement("testarrangement", "testing", tid, tid,"halden", organiser);
-        Race race = new Race("løpløp", "test av løp", tid,tid,arrangement2);
-        Race race2 = new Race("løpløp2", "test av løp2", tid,tid,arrangement2);
 
+        /*
         organiser.addArrangement(arrangement2);
         organiser.addRace(arrangement2, race);
         organiser.addRace(arrangement2, race2);
+        */
 
-        petter.joinArrangement(arrangement2);
-        petter.joinRace(race);
+     //   petter.joinArrangement(arrangement2);
+        petter.joinRace(race1);
         petter.joinRace(race2);
 
         organiser.leggTilResultatTilRace(race, petter, tid);
         organiser.leggTilResultatTilRace(race2, petter, tid);
-        ArrayList<HashMap> testliste = new ArrayList<>();
-        testliste.add(race.getResultatMap());
-        testliste.add(race2.getResultatMap());
+        HashMap<Race, LocalDateTime> expectedMap = new HashMap<>();
+        expectedMap.put(race, tid);
+        expectedMap.put(race2, tid);
 
-        System.out.println(petter.hentResultateneForMineRace());
+        System.out.println(petter.getResultatMap());
 
-        assertEquals(testliste.toString(), petter.hentResultateneForMineRace().toString());
+        assertEquals(expectedMap, petter.getResultatMap());
     }
 }

@@ -6,6 +6,7 @@ import softwareengineering.model.Race;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,6 +21,7 @@ public class ArrangementTest {
     private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
     private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid,arrangement);
+    private Race race2 = new Race("sdjsfdkjlkljdfskjldsf","dankestrace", tid, tid,arrangement);
 
     @Test
     void oppdater_deltagere() {
@@ -34,4 +36,15 @@ public class ArrangementTest {
         int id = arrangement.getId();
         assertEquals(arrangement, Arrangement.getArrangementById(id));
     }
+
+    @Test
+    void liste_med_race_kan_hentes() {
+
+        ArrayList<Race> expected = new ArrayList<>();
+        Kalle.joinRace(race);
+        Kalle.joinRace(race2);
+
+        assertEquals(expected, arrangement.getRaceList());
+    }
+
 }

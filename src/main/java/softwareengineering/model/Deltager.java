@@ -1,6 +1,7 @@
 package softwareengineering.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +10,10 @@ public class Deltager extends Bruker implements Serializable {
     private String etternavn;
 
     private ArrayList<Arrangement> arrangementListe = new ArrayList<>();
+
+
+
+    private HashMap<Race, LocalDateTime> resultatMap = new HashMap<>();
 
     public Deltager(String email, String password, String navn_f, String navn_e) {
         super(email, password, (navn_f + " " + navn_e));
@@ -72,7 +77,11 @@ public class Deltager extends Bruker implements Serializable {
     public String getNavn_e(){
         return etternavn;    }
 
-    public ArrayList<HashMap> hentResultateneForMineRace() {
+    public HashMap<Race, LocalDateTime> getResultatMap() {
+        return resultatMap;
+    }
+
+/*    public ArrayList<HashMap> hentResultateneForMineRace() {
         ArrayList<HashMap> listeMedResultater = new ArrayList<>();
         for(Arrangement arrangement : this.getArrangementListe()){
             for(Race race : arrangement.getRaceList()){
@@ -80,7 +89,8 @@ public class Deltager extends Bruker implements Serializable {
             }
         }
         return listeMedResultater;
-    }
+    }*/
+
 
 
 }
