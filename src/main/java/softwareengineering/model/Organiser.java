@@ -24,10 +24,10 @@ public class Organiser extends Bruker implements Serializable {
         return temp;
     }*/
 
-    public void addRace(Arrangement arrangementSentMed, Race race) {
+/*    public void addRace(Arrangement arrangementSentMed, Race race) {
         arrangementSentMed.getRaceList().add(race);
     //    return arrangementSentMed.getRaceList().get(arrangementSentMed.getRaceList().size()-1);
-    }
+    }*/
 
     public void leggTilResultatTilRace(Race race, Deltager deltager, LocalDateTime tid) {
         race.getResultatMap().put(deltager, tid);
