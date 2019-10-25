@@ -35,16 +35,10 @@ public class Deltager extends Bruker implements Serializable {
     }
 
 
-    public void joinRace(Race race) { // har tatt vekk første parameter: Arrangement
-        /*
-        for (Race racet : arrangement.getRaceList()){
-            if (racet.equals(race)){
-                race.getDeltagere().add(this);
-            }
+    public void joinRace(Race race) {
+        if (!race.getDeltagere().contains(this)) {
+            race.getDeltagere().add(this);
         }
-        */
-        race.getDeltagere().add(this);
-        //arrangement.updateDeltagerList();
     }
 
 
@@ -52,7 +46,7 @@ public class Deltager extends Bruker implements Serializable {
         Den bruker ikke arrangement-parameteret til noe, og hele metoden kan fjernes så fort alle vender seg til å kun bruke racet som argument.
      */
     public void joinRace(Arrangement arrangement, Race race) {
-        race.getDeltagere().add(this);
+        joinRace(race);
     }
 
 
