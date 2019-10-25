@@ -28,17 +28,13 @@ public class SignupController {
             String fornavn,@RequestParam(value = "etternavn", required = false) String etternavn, HttpServletResponse response, Model model) throws IOException {
 
         Cookie cooks = new Cookie("test","test");
-        //Bruker temp = Bruker.login(bruker,password);
         Bruker temp = null;
-        System.out.println(navn);
-        System.out.println(fornavn);
-        System.out.println(etternavn);
+
         if(navn != null)
             temp = new Organiser(bruker,password,navn);
         if(fornavn != null && etternavn!=null)
             temp = new Deltager(bruker,password,fornavn,etternavn);
         if(temp != null)
-        System.out.println(temp.getNavn() + " signed up");
         if(temp!=null)
             response.addCookie(bcu.BrukerCookie(temp));
         return new RedirectView("login");

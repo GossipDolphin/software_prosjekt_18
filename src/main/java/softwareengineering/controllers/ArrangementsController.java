@@ -4,9 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 import softwareengineering.model.Arrangement;
-import softwareengineering.model.Race;
+import softwareengineering.model.Bruker;
+import softwareengineering.model.Organiser;
+import softwareengineering.utilities.BrukerCookieUtility;
 import softwareengineering.utilities.GoogleMapsApi;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 @Controller
 public class ArrangementsController {
@@ -14,7 +23,7 @@ public class ArrangementsController {
 
     @GetMapping("/arrangementer")
     public String arrangementer(Model model){
-        model.addAttribute("arrangementer", Arrangement.getAlleArrangement());
+        model.addAttribute("arrangementer", Arrangement.alleArrangement);
         return "arrangementer.html";
     }
     @GetMapping("/arrangementer/{id}")
@@ -25,5 +34,21 @@ public class ArrangementsController {
         return "arrangement.html";
     }
 
+    @RequestMapping(value = "/arrangementer")
+    public RedirectView ArrangementInput(@RequestParam("navn") String navn, @RequestParam("beskrivelse") String beskrivelse, @RequestParam(value = "startTid") String startTid, @RequestParam(value = "sluttTid")
+            String slutttid, @RequestParam(value = "lokasjon") String lokasjon, HttpServletRequest request, Model model) throws IOException {
 
+        LocalDateTime startTidformatted = LocalDateTime.parse(startTid);
+        LocalDateTime sluttTtidformatted = LocalDateTime.parse(slutttid);
+
+       Bruker user = BrukerCookieUtility.opprettBrukerFraCookie(request);
+        if (user instanceof Organiser){
+            Organiser organiser = (Organiser) user;
+            Arrangement arrangement = new Arrangement(navn,beskrivelse,startTidformatted,sluttTtidformatted,lokasjon, organiser);
+        }
+        else {
+            return new RedirectView("arrangementer");
+        }
+        return new RedirectView("arrangementer");
+    }
 }

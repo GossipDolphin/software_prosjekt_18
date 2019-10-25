@@ -3,6 +3,7 @@ package softwareengineering.utilities;
 import softwareengineering.model.Bruker;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,5 +48,20 @@ public class BrukerCookieUtility {
             ny += a;
         }
         return ny;
+    }
+
+    public static Bruker opprettBrukerFraCookie(HttpServletRequest request){
+        BrukerCookieUtility brukerCookieUtility = new BrukerCookieUtility();
+        Bruker user = null;
+        try {
+            Cookie[] cookies = request.getCookies();
+            for (Cookie cookie : cookies) {
+                user = brukerCookieUtility.checkCookie(cookie);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return user;
     }
 }
