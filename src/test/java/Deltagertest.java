@@ -98,4 +98,14 @@ public class Deltagertest {
 
         assertEquals(expectedMap, petter.getResultatMap());
     }
+
+    @Test
+    void deltager_blir_paameldt_kun_en_gang() {
+        petter.joinRace(race1);
+        petter.joinRace(race1);
+        ArrayList<Deltager> expectedDeltagere = new ArrayList<>();
+        expectedDeltagere.add(petter);
+
+        assertEquals(expectedDeltagere, race1.getDeltagere());
+    }
 }
