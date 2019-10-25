@@ -21,40 +21,11 @@
                     "<li><input value='2019-06-13T13:00' type='datetime-local' name='sluttTid' id='sluttTid'></li>" +
                     "<strong>Lokasjon/ addresse</strong>" +
                     "<li><input type='text' name='lokasjon' id='lokasjon'></li>" +
-                    "<li><button onclick='lagreArrangement()'>Lagre</button></li>" +
+                    "<li><button>Lagre</button></li>" +
                 "</ul>"
         }
-        function lagreArrangement() {
-            var input = true;
 
-            if (document.getElementById("navn").value===""){
-                input=false;
-                alert("ugyldig navn");
-            }
-            if (document.getElementById("beskrivelse").value===""){
-                input=false;
-                alert("ugyldig beskrivelse");
 
-            }
-            if (document.getElementById("startTid").value===""){
-                input=false;
-                alert("ugyldig start tid");
-
-            }
-            if (document.getElementById("sluttTid").value===""){
-                input=false;
-                alert("ugyldig slutt tid");
-            }
-            if (document.getElementById("lokasjon").value===""){
-                input=false;
-                alert("ugyldig lokasjon");
-            }
-            if(input){
-                document.opprettArrangement.submit();
-                alert("Arrangement opprettet");
-                return false;
-            }
-        }
     </script>
 
 </head>
