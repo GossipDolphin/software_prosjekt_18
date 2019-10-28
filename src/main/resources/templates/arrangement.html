@@ -12,9 +12,9 @@
         function visSkjemaForRace() {
             document.getElementById("opprettRace").innerHTML = "<ul>" +
                 "<strong>Navn</strong>" +
-                "<li><input type='text' name='navn' id='navn'></li>" +
+                "<li><input type='text' name='navn' id='navn' value='Dummy løp'></li>" +
                 "<strong>Beskrivelse</strong>" +
-                "<li><input type='text' name='beskrivelse' id='beskrivelse'></li>" +
+                "<li><input type='text' name='beskrivelse' id='beskrivelse' value='Dummys løper som bare det!'></li>" +
                 "<strong>Start Tid</strong>" +
                 "<li><input type='datetime-local' name='startTid' id='startTid' value='2019-06-13T13:00'></li>" +
                 "<strong>Slutt tid</strong>" +
@@ -48,9 +48,9 @@
     <p th:text="${arrangement.sluttDate}"></p>
     <Strong>Arrangør: </Strong>
     <p th:text="${arrangement.organiser}"></p>
-    <strong>Races</strong>
+    <strong>Løp</strong>
     <ul th:each="race : ${arrangement.raceList}">
-        <a th:href="@{'~/race/' + ${race.id}}" th:text="${race}"></a>
+        <a th:href="@{'~/race/' + ${race.id}}" th:text="${race.raceNavn}"></a>
     </ul>
 </article>
 <form id="opprettRace" name="opprettRace" method="post">

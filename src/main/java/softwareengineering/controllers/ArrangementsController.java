@@ -48,7 +48,7 @@ public class ArrangementsController {
             Arrangement arrangement = new Arrangement(navn,beskrivelse,startTidformatted,sluttTtidformatted,lokasjon, organiser);
         }
         else {
-            return new RedirectView("arrangementer");
+            return new RedirectView("/kreverorganiser");
         }
         return new RedirectView("arrangementer");
     }
@@ -60,8 +60,14 @@ public class ArrangementsController {
         LocalDateTime startTidParsed = LocalDateTime.parse(startTid);
         LocalDateTime sluttTidParsed = LocalDateTime.parse(slutttid);
         Arrangement arrangementet = Arrangement.getArrangementById(parsedId);
-        Race race = new Race(navn, beskrivelse, startTidParsed, sluttTidParsed, arrangementet);
-        arrangementet.getRaceList().add(race);
-        return new RedirectView("/arrangementer/{id}");
+        Bruker user = BrukerCookieUtility.opprettBrukerFraCookie(request);
+
+        if (user.equals(arrangementet.getOrganiser())) {
+            Race race = new Race(navn, beskrivelse, startTidParsed, sluttTidParsed, arrangementet);
+            return new RedirectView("/arrangementer/{id}");
+        }
+        else {
+            return new RedirectView("/kreverorganiser");
+        }
     }
 }

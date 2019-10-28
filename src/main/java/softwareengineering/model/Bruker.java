@@ -91,29 +91,20 @@ public abstract class Bruker implements Serializable {
         }
         return hashedPassword;
     }
-    public static Bruker login(String email, String password){
-        System.out.println("Test");
+    public static Bruker login(String email, String password) {
         Bruker temp = null;
-        for(int i = 0; i<alleBrukere.size();i++)
-        {
-            if(email.equals(alleBrukere.get(i).getEmail())) {
+        for (int i = 0; i < alleBrukere.size(); i++) {
+            if (email.equals(alleBrukere.get(i).getEmail())) {
                 temp = alleBrukere.get(i);
             }
         }
-        if(temp != null) {
-            System.out.println(temp.getNavn());
-        }
         String test1 = hashPassword(password, temp.getSalt());
         String test2 = temp.getPassword();
-        System.out.println(test1);
-        System.out.println(test2);
-        if(test1.equals(test2))
-        {
+
+        if (test1.equals(test2)) {
             return temp;
-
-        }
-
-        else
+        } else {
             return null;
+        }
     }
 }

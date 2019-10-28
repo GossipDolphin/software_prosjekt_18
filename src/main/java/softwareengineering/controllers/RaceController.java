@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 import softwareengineering.model.Bruker;
 import softwareengineering.model.Deltager;
 import softwareengineering.model.Race;
@@ -21,7 +22,7 @@ BrukerCookieUtility brukerCookieUtility = new BrukerCookieUtility();
         return "Race.html";
     }
     @RequestMapping(value = "/race/{raceId}/join")
-    public String readCookie(@PathVariable String raceId,HttpServletRequest request, Model model) {
+    public RedirectView readCookie(@PathVariable String raceId,HttpServletRequest request, Model model) {
         int parsedRaceId = Integer.parseInt(raceId);
         model.addAttribute("race", Race.getRaceById(parsedRaceId));
         Bruker brukertemp = BrukerCookieUtility.opprettBrukerFraCookie(request);
@@ -29,8 +30,10 @@ BrukerCookieUtility brukerCookieUtility = new BrukerCookieUtility();
         if(brukertemp instanceof Deltager) {
             Deltager temp = (Deltager)brukertemp;
             Race.getRaceById(parsedRaceId).getDeltagere().add(temp);
-            //temp.joinRace(Race.getRaceById(parsedRaceId)); // har tatt vekk første argument: Race.getRaceById(parsedRaceId).getArrangement(),
+            return new RedirectView("/race/{raceId}");
         }
-        return "Race.html";
+        else {
+            return new RedirectView("/kreverdeltager");
+        }
     }
 }
