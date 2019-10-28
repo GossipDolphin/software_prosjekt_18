@@ -41,6 +41,9 @@ public class ArrangementTest {
     void liste_med_race_kan_hentes() {
 
         ArrayList<Race> expected = new ArrayList<>();
+        expected.add(race);
+        expected.add(race2);
+
         Kalle.joinRace(race);
         Kalle.joinRace(race2);
 

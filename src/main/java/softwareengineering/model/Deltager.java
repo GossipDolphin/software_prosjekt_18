@@ -9,6 +9,8 @@ public class Deltager extends Bruker implements Serializable {
     private String fornavn;
     private String etternavn;
 
+
+    private ArrayList<Race> races = new ArrayList<>();
     private ArrayList<Arrangement> arrangementListe = new ArrayList<>();
 
 
@@ -38,6 +40,8 @@ public class Deltager extends Bruker implements Serializable {
     public void joinRace(Race race) {
         if (!race.getDeltagere().contains(this)) {
             race.getDeltagere().add(this);
+            races.add(race);
+
         }
     }
 
@@ -50,10 +54,10 @@ public class Deltager extends Bruker implements Serializable {
     }
 
 
-    public ArrayList<Race> hentMineRace() {
+/*    public ArrayList<Race> hentMineRace() {
         ArrayList<Race> mineRace = new ArrayList<>();
 
-        for (Arrangement arrangement : getArrangementListe()){
+        for (Arrangement arrangement : arrangementListe){
             for (Race race : arrangement.getRaceList()){
                 for (Deltager deltager : race.getDeltagere()){
                     if (this.getEmail().equals(deltager.getEmail())){
@@ -63,7 +67,14 @@ public class Deltager extends Bruker implements Serializable {
             }
         }
         return mineRace;
+    }*/
+
+
+    public ArrayList<Race> getRaces() {
+        return races;
     }
+
+
 
     public String getNavn_f(){
         return fornavn;
@@ -84,6 +95,7 @@ public class Deltager extends Bruker implements Serializable {
         }
         return listeMedResultater;
     }*/
+
 
 
 

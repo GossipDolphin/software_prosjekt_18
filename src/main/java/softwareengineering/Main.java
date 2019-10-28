@@ -25,9 +25,9 @@ public class Main {
         Race race2 = new Race("ungdom 05 løp2" ,"raceracerace", randomtid, randomtid, HelseArrangement);
         Race race3 = new Race("barneskiren 05 løp2" ,"Petter Northug knuser alle kidza", randomtid, randomtid, skiLoep);
 
-        Ola.addRace(HelseArrangement, race1);
+/*        Ola.addRace(HelseArrangement, race1);
         Ola.addRace(HelseArrangement, race2);
-        Ola.addRace(skiLoep, race3);
+        Ola.addRace(skiLoep, race3);*/
 
 
         petter.joinArrangement(HelseArrangement);
