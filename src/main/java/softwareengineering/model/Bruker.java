@@ -96,11 +96,11 @@ public abstract class Bruker implements Serializable {
         Bruker temp = null;
         for(int i = 0; i<alleBrukere.size();i++)
         {
-            if(email == alleBrukere.get(i).getEmail());
-                temp=alleBrukere.get(i);
+            if(email.equals(alleBrukere.get(i).getEmail())) {
+                temp = alleBrukere.get(i);
+            }
         }
-        if(temp != null)
-        {
+        if(temp != null) {
             System.out.println(temp.getNavn());
         }
         String test1 = hashPassword(password, temp.getSalt());

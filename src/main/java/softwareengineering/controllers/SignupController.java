@@ -37,6 +37,6 @@ public class SignupController {
         if(temp != null)
         if(temp!=null)
             response.addCookie(bcu.BrukerCookie(temp));
-        return new RedirectView("login");
+        return new RedirectView("arrangementer");
     }
 }

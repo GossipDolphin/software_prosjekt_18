@@ -18,53 +18,62 @@
             kontoType = document.signup.type;
             if(kontoType.value=="deltager")
             document.getElementById("navn").innerHTML = "<li>Fornavn</li>" +
-                "<li><input type=\"text\" name=\"fornavn\" id='fornavn'></li>" +
+                "<li><input type=\"text\" name=\"fornavn\" id='fornavn' value='Ola'></li>" +
                 "<li>Etternavn</li>" +
-                "<li><input type=\"text\" name=\"etternavn\" id='etternavn'></li>" +
+                "<li><input type=\"text\" name=\"etternavn\" id='etternavn' value='Normann'></li>" +
                 "<li>Email</li>" +
-                "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
+                "<li><input type=\"email\" id=\"bruker\" name=\"bruker\" value='Ola@gmail.com'></li>" +
                 "<li>Passord</li>" +
-                "<li><input type=\"password\" name=\"password\" id=\"password\"></li>" +
-                "<li><input type=\"button\" onclick=\"alertSignupDeltager()\" value='Registrer'></li>";
+                "<li><input type=\"password\" name=\"password\" id=\"password\" value='admin'></li>" +
+                "<li><input type=\"button\" onclick=\"alertSignupDeltager()\" value='Registrer' class='signupKnapp'></li>";
 
             if(kontoType.value=="organiser")
                 document.getElementById("navn").innerHTML = "<li>Navn arrangør</li>" +
-                    "<li><input type=\"text\" name=\"navn\" id='navnOrganiser'></li>" +
+                    "<li><input type=\"text\" name=\"navn\" id='navnOrganiser' value='OlaNormanCorp'></li>" +
                     "<li>Email</li>" +
-                    "<li><input type=\"email\" id=\"bruker\" name=\"bruker\"></li>" +
+                    "<li><input type=\"email\" id=\"bruker\" name=\"bruker\" value='Normann@gmail.com'></li>" +
                     "<li>Passord</li>" +
-                    "<li><input type=\"password\" name=\"password\" id=\"password\"></li>" +
-                    "<li><input type=\"button\" onclick=\"alertSignupOrganiser()\" value='Registrer'></li>";
+                    "<li><input type=\"password\" name=\"password\" id=\"password\" value='admin'></li>" +
+                    "<li><input type=\"button\" onclick=\"alertSignupOrganiser()\" value='Registrer' class='signupKnapp'></li>";
         }
         function alertSignupDeltager() {
+            var input = true;
             if(document.getElementById("fornavn").value===""){
                 alert("ugylde fornavn");
+                input=false;
             }
             if(document.getElementById("etternavn").value===""){
                 alert("ugylde etternavn");
+                input=false;
             }
             if(document.getElementById("bruker").value===""){
                 alert("ugylde email");
+                input=false;
             }
             if(document.getElementById("password").value===""){
                 alert("ugylde passord");
+                input=false;
             }
-            else {
+            else if(input){
                 document.signup.submit();
                 alert("takk for registreringen");
             }
         }
         function alertSignupOrganiser() {
+            var input=true;
             if(document.getElementById("navnOrganiser").value===""){
                 alert("ugylde navn");
+                input=false;
             }
             if(document.getElementById("bruker").value===""){
                 alert("ugylde email");
+                input=false;
             }
             if(document.getElementById("password").value===""){
                 alert("ugylde passord");
+                input=false
             }
-            else {
+            else if (input) {
                 document.signup.submit();
                 alert("takk for registreringen");
             }

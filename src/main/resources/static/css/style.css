@@ -104,4 +104,34 @@ ul {
 iframe{
     height: 250px;
 }
+form{
+    margin-bottom: 30px;
+}
+button{
+    margin: 10px;
 
+}
+#googlekart{
+    float: right;
+    width: 600px;
+    height: 450px;
+    box-shadow: 7px 7px 7px 7px grey;
+    margin-right: 20px;
+    margin-top: 25px;
+    border-radius: 5px;
+}
+article{
+    background-color: #f2f2f2;
+}
+form{
+    background-color: #f2f2f2;
+}
+section{
+    background-color: #f2f2f2;
+}
+#loginKnapp{
+    margin-bottom: 10px;
+}
+.signupKnapp{
+    margin-bottom: 10px;
+}

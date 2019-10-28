@@ -9,23 +9,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
-        function visSkjema() {
-            document.getElementById("opprettArrangement").innerHTML = "<ul>" +
+            function visSkjema() {
+                document.getElementById("opprettArrangement").innerHTML = "<ul>" +
                     "<strong>Navn på arrangementet</strong>" +
-                    "<li><input type='text' name='navn' id='navn'></li>" +
+                    "<li><input type='text' name='navn' id='navn' value='Ola sitt arrangement'></li>" +
                     "<strong>Beskrivelse</strong>" +
-                    "<li><input type='text' name='beskrivelse' id='beskrivelse'></li>" +
+                    "<li><input type='text' name='beskrivelse' id='beskrivelse' value='Ola løper mot alle mann'></li>" +
                     "<strong>Start tid</strong>" +
                     "<li><input value='2019-06-13T13:00' type='datetime-local' name='startTid' id='startTid'></li>" +
                     "<strong>Slutt tid</strong>" +
                     "<li><input value='2019-06-13T13:00' type='datetime-local' name='sluttTid' id='sluttTid'></li>" +
                     "<strong>Lokasjon/ addresse</strong>" +
-                    "<li><input type='text' name='lokasjon' id='lokasjon'></li>" +
-                    "<li><button>Lagre</button></li>" +
-                "</ul>"
+                    "<li><input type='text' name='lokasjon' id='lokasjon' value='Halden'></li>" +
+                    "<button id='lagre' onclick='submit()'>Lagre</button>" +
+                    "</ul>";
         }
-
-
     </script>
 
 </head>
@@ -38,6 +36,7 @@
     <li><a href="/signup">Registrer</a></li>
 </ul>
 </nav>
+<section>
 <h2>Alle arrangementer</h2>
 <table><tr><th>Navn</th><th>Beskrivelse</th><th>Sted</th><th>Starttid</th><th>Slutttid</th><th>Arrangør</th></tr>
     <tr th:each="arrangement: ${arrangementer}">
@@ -49,8 +48,9 @@
         <td th:text="${arrangement.organiser}"></td>
     </tr>
 </table>
-<form id="opprettArrangement" name="opprettArrangement" method="post">
+<form id="opprettArrangement" name="opprettArrangement" method="post" >
     <button onclick="visSkjema()">Opprett nytt arrangement</button>
 </form>
+</section>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import softwareengineering.model.Arrangement;
 import softwareengineering.model.Bruker;
 import softwareengineering.model.Organiser;
+import softwareengineering.model.Race;
 import softwareengineering.utilities.BrukerCookieUtility;
 import softwareengineering.utilities.GoogleMapsApi;
 
@@ -50,5 +51,17 @@ public class ArrangementsController {
             return new RedirectView("arrangementer");
         }
         return new RedirectView("arrangementer");
+    }
+
+    @RequestMapping(value = "/arrangementer/{id}")
+    public RedirectView opprettRace(@PathVariable String id, @RequestParam("navn") String navn, @RequestParam("beskrivelse") String beskrivelse, @RequestParam(value = "startTid") String startTid, @RequestParam(value = "sluttTid")
+            String slutttid, HttpServletRequest request, Model model) throws IOException{
+        int parsedId = Integer.parseInt(id);
+        LocalDateTime startTidParsed = LocalDateTime.parse(startTid);
+        LocalDateTime sluttTidParsed = LocalDateTime.parse(slutttid);
+        Arrangement arrangementet = Arrangement.getArrangementById(parsedId);
+        Race race = new Race(navn, beskrivelse, startTidParsed, sluttTidParsed, arrangementet);
+        arrangementet.getRaceList().add(race);
+        return new RedirectView("/arrangementer/{id}");
     }
 }

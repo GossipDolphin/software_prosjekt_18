@@ -25,8 +25,9 @@ public class LoginController {
     public RedirectView loginInput(@RequestParam("bruker") String bruker, @RequestParam("password") String password, HttpServletResponse response, Model model, final RedirectAttributes redirectAttributes) throws IOException {
         try {
             Bruker temp = Bruker.login(bruker, password);
-            if (temp != null)
+            if (temp != null) {
                 response.addCookie(bcu.BrukerCookie(temp));
+            }
         }
         catch (Exception e){
             return new RedirectView("loginfeilet");
