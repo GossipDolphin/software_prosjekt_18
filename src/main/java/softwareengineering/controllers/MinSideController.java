@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import softwareengineering.model.Bruker;
 import softwareengineering.model.Deltager;
+import softwareengineering.model.Organiser;
 import softwareengineering.utilities.BrukerCookieUtility;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,10 @@ public class MinSideController {
         if (bruker instanceof Deltager){
             Deltager deltager = (Deltager) bruker;
             model.addAttribute("mineRace", deltager.getRaces());
-            System.out.println(deltager.getRaces());
+        }
+        if (bruker instanceof Organiser){
+            Organiser organiser = (Organiser) bruker;
+            model.addAttribute("mineArrangement", organiser.getArrangementListe());
         }
         return "minside.html";
     }

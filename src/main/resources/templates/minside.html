@@ -22,20 +22,29 @@
     </ul>
 </nav>
 <section class="minside">
-<h2>Min side</h2>
-<strong>Bruker</strong>
-<p th:text="${bruker}"></p>
-<strong>Email</strong>
-<p th:text="${email}"></p>
-<ul th:each="mineRace: ${mineRace}">
-    <h5>På meldt til</h5>
-    <li><strong>Arrangement</strong></li>
-    <li><a th:href="@{'arrangementer/' + ${mineRace.arrangement.id}}" th:text="${mineRace.arrangement.navn}"></a></li>
-    <ul>
-        <li><strong>Løp</strong></li>
-        <li><a th:href="@{'~/race/' + ${mineRace.id}}" th:text="${mineRace}"></a></li>
+    <h2>Min side</h2>
+    <strong>Bruker</strong>
+    <p th:text="${bruker}"></p>
+    <strong>Email</strong>
+    <p th:text="${email}"></p>
+    <ul th:each="mineRace: ${mineRace}">
+        <h5>På meldt til</h5>
+        <li><strong>Arrangement</strong></li>
+        <li><a th:href="@{'arrangementer/' + ${mineRace.arrangement.id}}" th:text="${mineRace.arrangement.navn}"></a></li>
+        <ul>
+            <li><strong>Løp</strong></li>
+            <li><a th:href="@{'~/race/' + ${mineRace.id}}" th:text="${mineRace}"></a></li>
+        </ul>
     </ul>
-</ul>
+    <ul th:each="mineArrangement: ${mineArrangement}">
+        <h5>Mitt arrangement</h5>
+        <li><strong>Arrangement</strong></li>
+        <li><a th:href="@{'arrangementer/' + ${mineArrangement.id}}" th:text="${mineArrangement.navn}"></a></li>
+        <ul th:each="Race: ${mineArrangement.raceList}">
+            <strong>Løp</strong>
+            <li><a th:href="@{'~/race/' + ${Race.id}}" th:text="${Race}"></a></li>
+        </ul>
+    </ul>
 </section>
 </body>
 </html>
