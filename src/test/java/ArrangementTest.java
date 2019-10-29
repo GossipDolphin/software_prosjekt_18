@@ -65,8 +65,8 @@ public class ArrangementTest {
                 actualValue.add(arrangement);
             }
         }
-        System.out.println("Arrangementet er lagt til " + antallGangerArrangementetErLagtTil + " gang(er).");
-        assertEquals(excpectedValue, actualValue);
+
+        assertEquals(excpectedValue, actualValue, "Arrangementet blir lagt til " + antallGangerArrangementetErLagtTil + " ganger.");
     }
 
 }

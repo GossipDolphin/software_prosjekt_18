@@ -37,7 +37,6 @@ public class Deltagertest {
     @Test
     public void meld_meg_paa_race_i_arrangement(){
         Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid,arrangement);
-//        arrangement.getRaceList().add(race);
         Kalle.joinRace(race);
         assertTrue(race.getDeltagere().contains(Kalle));
     }
@@ -87,8 +86,6 @@ public class Deltagertest {
         HashMap<Race, LocalDateTime> expectedMap = new HashMap<>();
         expectedMap.put(race1, tid);
         expectedMap.put(race2, tid);
-
-        System.out.println(petter.getResultatMap());
 
         assertEquals(expectedMap, petter.getResultatMap());
     }
