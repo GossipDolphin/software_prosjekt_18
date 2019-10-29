@@ -47,27 +47,29 @@ public class Deltagertest {
         Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson");
         Race race1 = new Race("race1 for the stuff","dankestrace",tid,tid,arrangement);
 
-        Arrangement arrangement2 = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
 
-        //Legger til et race i listen til arrangementet og melder petter på racet
-        //arrangement.getRaceList().add(race1);
-        //petter.joinArrangement(arrangement);
+        //Melder petter på racet
         petter.joinRace(race1);
             assertEquals(arrangement.getRaceList(), petter.getRaces());
 
-        //Legger til ENDA et race i listen til arrangementet og melder petter på racet
+        //Melder petter på enda et race
         Race race2 = new Race("race2 for the stuff","dankestrace",tid,tid,arrangement);
-//        arrangement.getRaceList().add(race2);
         petter.joinRace(race2);
             assertEquals(arrangement.getRaceList().toString(), petter.getRaces().toString());
 
-        //melder petter på et annet arrangement og legger til petter i et race i det nye arrangementet
-        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid,arrangement);
+        //Legger til petter i et race i nytt arrangement
+        Arrangement arrangement2 = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
+        Race race3 = new Race("race3 for the stuff","dankestrace",tid,tid,arrangement2);
         petter.joinRace(race3);
-        // legger til det nye racet i listen til det forrige arrangementet for å få listen til å inneholde alle tre race
-//        arrangement.getRaceList().add(arrangement2.getRaceList().get(0));
-        //sjekker så at petter får ut alle tre race og at det er racene som ligger i den nye listen
-            assertEquals(arrangement.getRaceList().toString(), petter.getRaces().toString());
+
+
+        ArrayList<Race> expected = new ArrayList<>();
+        expected.add(race1);
+        expected.add(race2);
+        expected.add(race3);
+
+        //sjekker så at petter får ut alle tre race
+            assertEquals(expected, petter.getRaces());
     }
 
     private Race race1 = new Race("løpløp", "test av løp", tid,tid,arrangement2);
@@ -76,15 +78,7 @@ public class Deltagertest {
 
     @Test
     public void hent_alle_resultater_til_race_jeg_er_med_i(){
-        //Organiser organiser1 = new Organiser("test@gmail.com", "admin", "konrad");
 
-        /*
-        organiser.addArrangement(arrangement2);
-        organiser.addRace(arrangement2, race);
-        organiser.addRace(arrangement2, race2);
-        */
-
-     //   petter.joinArrangement(arrangement2);
         petter.joinRace(race1);
         petter.joinRace(race2);
 
