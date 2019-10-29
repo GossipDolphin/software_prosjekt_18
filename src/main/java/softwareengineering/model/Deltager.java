@@ -8,11 +8,8 @@ import java.util.HashMap;
 public class Deltager extends Bruker implements Serializable {
     private String fornavn;
     private String etternavn;
-
-
     private ArrayList<Race> races = new ArrayList<>();
     private ArrayList<Arrangement> arrangementListe = new ArrayList<>();
-
 
 
     private HashMap<Race, LocalDateTime> resultatMap = new HashMap<>();
@@ -41,7 +38,6 @@ public class Deltager extends Bruker implements Serializable {
         if (!race.getDeltagere().contains(this)) {
             race.getDeltagere().add(this);
             races.add(race);
-
         }
     }
 
@@ -75,12 +71,13 @@ public class Deltager extends Bruker implements Serializable {
     }
 
 
-
-    public String getNavn_f(){
+    public String getNavn_f() {
         return fornavn;
     }
-    public String getNavn_e(){
-        return etternavn;    }
+
+    public String getNavn_e() {
+        return etternavn;
+    }
 
     public HashMap<Race, LocalDateTime> getResultatMap() {
         return resultatMap;
@@ -95,8 +92,6 @@ public class Deltager extends Bruker implements Serializable {
         }
         return listeMedResultater;
     }*/
-
-
 
 
 }

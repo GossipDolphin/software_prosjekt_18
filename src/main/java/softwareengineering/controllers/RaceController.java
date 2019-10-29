@@ -29,7 +29,8 @@ BrukerCookieUtility brukerCookieUtility = new BrukerCookieUtility();
 
         if(brukertemp instanceof Deltager) {
             Deltager temp = (Deltager)brukertemp;
-            Race.getRaceById(parsedRaceId).getDeltagere().add(temp);
+            temp.joinRace(Race.getRaceById(parsedRaceId));
+            //Race.getRaceById(parsedRaceId).getDeltagere().add(temp);
             return new RedirectView("/race/{raceId}");
         }
         else {
