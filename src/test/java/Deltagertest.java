@@ -108,4 +108,15 @@ public class Deltagertest {
 
         assertEquals(expectedDeltagere, race1.getDeltagere());
     }
+
+    @Test
+    void deltager_sine_paameldte_races_kan_hentes() {
+        petter.joinRace(race1);
+        petter.joinRace(race2);
+        ArrayList<Race> expected = new ArrayList<>();
+        expected.add(race1);
+        expected.add(race2);
+
+        assertEquals(expected, petter.getRaces());
+    }
 }
