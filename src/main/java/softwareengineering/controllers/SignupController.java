@@ -33,7 +33,6 @@ public class SignupController {
         if(fornavn != null && etternavn!=null)
             temp = new Deltager(bruker,password,fornavn,etternavn);
         if(temp != null)
-        if(temp!=null)
             response.addCookie(bcu.BrukerCookie(temp));
         return new RedirectView("arrangementer");
     }

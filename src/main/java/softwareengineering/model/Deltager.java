@@ -41,31 +41,6 @@ public class Deltager extends Bruker implements Serializable {
         }
     }
 
-
-    /* Denne metoden gjør det samme som joinRace(Race race), og er der kun for de som av gammel vane trenger å skrive inn arrangementet i tillegg til racet.
-        Den bruker ikke arrangement-parameteret til noe, og hele metoden kan fjernes så fort alle vender seg til å kun bruke racet som argument.
-     */
-    public void joinRace(Arrangement arrangement, Race race) {
-        joinRace(race);
-    }
-
-
-/*    public ArrayList<Race> hentMineRace() {
-        ArrayList<Race> mineRace = new ArrayList<>();
-
-        for (Arrangement arrangement : arrangementListe){
-            for (Race race : arrangement.getRaceList()){
-                for (Deltager deltager : race.getDeltagere()){
-                    if (this.getEmail().equals(deltager.getEmail())){
-                        mineRace.add(race);
-                    }
-                }
-            }
-        }
-        return mineRace;
-    }*/
-
-
     public ArrayList<Race> getRaces() {
         return races;
     }
