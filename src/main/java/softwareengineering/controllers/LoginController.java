@@ -28,6 +28,9 @@ public class LoginController {
             if (temp != null) {
                 response.addCookie(bcu.BrukerCookie(temp));
             }
+            if(temp == null){
+                return new RedirectView("loginfeilet");
+            }
         }
         catch (Exception e){
             return new RedirectView("loginfeilet");

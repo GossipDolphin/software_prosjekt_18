@@ -46,7 +46,7 @@ public abstract class Bruker implements Serializable {
         this.password = hashPassword(password, getSalt());
     }
 
-    public byte[] getSalt(){
+    public byte[] getSalt()throws NullPointerException {
         return salt;
     }
 
@@ -98,13 +98,18 @@ public abstract class Bruker implements Serializable {
                 temp = alleBrukere.get(i);
             }
         }
-        String test1 = hashPassword(password, temp.getSalt());
-        String test2 = temp.getPassword();
+        try {
+            String test1 = hashPassword(password, temp.getSalt());
+            String test2 = temp.getPassword();
 
-        if (test1.equals(test2)) {
-            return temp;
-        } else {
-            return null;
+            if (test1.equals(test2)) {
+                return temp;
+            } else {
+                return null;
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
         }
+        return null;
     }
 }
