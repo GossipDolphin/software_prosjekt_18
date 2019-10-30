@@ -11,7 +11,6 @@ import softwareengineering.model.Deltager;
 import softwareengineering.model.Organiser;
 import softwareengineering.utilities.BrukerCookieUtility;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -27,7 +26,6 @@ public class SignupController {
     public RedirectView signupInput(@RequestParam("bruker") String bruker, @RequestParam("password") String password, @RequestParam(value = "navn",required = false) String navn,@RequestParam(value = "fornavn", required = false)
             String fornavn,@RequestParam(value = "etternavn", required = false) String etternavn, HttpServletResponse response, Model model) throws IOException {
 
-        Cookie cooks = new Cookie("test","test");
         Bruker temp = null;
 
         if(navn != null)

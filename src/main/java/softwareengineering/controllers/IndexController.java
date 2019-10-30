@@ -9,7 +9,6 @@ import softwareengineering.model.Arrangement;
  public class IndexController {
     @GetMapping("/")
     public String arrangementer(Model model){
-        System.out.println("test");
         model.addAttribute("arrangementer", Arrangement.getAlleArrangement());
         //model.addAttribute()
         return "index.html";
