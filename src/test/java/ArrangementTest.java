@@ -18,10 +18,10 @@ public class ArrangementTest {
     private String randomTid = "2019-09-09 10:30";
     private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
     private Organiser organiser = new Organiser("meOrganiser@gmail.com", "admin", "lordOrganiser");
-    private Arrangement arrangement = new Arrangement("MLG dankløp","dankestrace", tid, tid, "Halden", organiser);
+    private Arrangement arrangement = new Arrangement("MLG dankløp", "dankestrace", tid, tid, "Halden", organiser);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
-    private Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid,arrangement);
-    private Race race2 = new Race("sdjsfdkjlkljdfskjldsf","dankestrace", tid, tid,arrangement);
+    private Race race = new Race("Kan du løpe fortere en hunden min?", "dankestrace", tid, tid, arrangement);
+    private Race race2 = new Race("sdjsfdkjlkljdfskjldsf", "dankestrace", tid, tid, arrangement);
 
     @Test
     void oppdater_deltagere() {
@@ -32,7 +32,7 @@ public class ArrangementTest {
     }
 
     @Test
-    void hent_arrangement_med_id(){
+    void hent_arrangement_med_id() {
         int id = arrangement.getId();
         assertEquals(arrangement, Arrangement.getArrangementById(id));
     }

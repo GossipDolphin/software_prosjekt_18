@@ -23,8 +23,6 @@ public class Arrangement implements Serializable {
     private ArrayList<Deltager> deltagerList = new ArrayList<>();
     private String mapsUrl;
 
-
-
     public Arrangement(String navn, String beskrivelse, LocalDateTime startDate, LocalDateTime sluttDate, String lokasjon, Organiser organiser) {
         this.navn = navn;
         this.beskrivelse = beskrivelse;
@@ -40,10 +38,8 @@ public class Arrangement implements Serializable {
 
     }
 
-
-
     @Override
-    public String toString(){
+    public String toString() {
         return navn + "\n" + startDate + "\n" + sluttDate + "\n" + lokasjon + "\n" + organiser.toString() + "\n" + raceList.toString();
     }
 
@@ -94,6 +90,7 @@ public class Arrangement implements Serializable {
     public void setOrganiser(Organiser organiser) {
         this.organiser = organiser;
     }
+
     public ArrayList<Race> getRaceList() {
         return raceList;
     }
@@ -126,15 +123,16 @@ public class Arrangement implements Serializable {
     public int getId() {
         return id;
     }
-    public static Arrangement getArrangementById(int id){
+
+    public static Arrangement getArrangementById(int id) {
         Arrangement temp = null;
-        for(int i = 0;i<alleArrangement.size();i++)
-        {
-            if(alleArrangement.get(i).getId()==id)
+        for (int i = 0; i < alleArrangement.size(); i++) {
+            if (alleArrangement.get(i).getId() == id)
                 temp = alleArrangement.get(i);
         }
         return temp;
     }
+
     public String getMapsUrl() {
         return mapsUrl;
     }
@@ -148,5 +146,4 @@ public class Arrangement implements Serializable {
             }
         }
     }
-
 }

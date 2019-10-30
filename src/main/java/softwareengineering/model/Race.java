@@ -84,6 +84,7 @@ public class Race implements Serializable {
     public void setDeltagere(ArrayList<Deltager> deltagere) {
         this.deltagere = deltagere;
     }
+
     public HashMap<Deltager, LocalDateTime> getResultatMap() {
         return resultatMap;
     }

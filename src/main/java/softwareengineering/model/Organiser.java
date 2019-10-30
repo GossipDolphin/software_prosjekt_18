@@ -3,16 +3,16 @@ package softwareengineering.model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Organiser extends Bruker implements Serializable {
 
     private ArrayList<Arrangement> arrangementListe = new ArrayList<>();
+
     public Organiser(String email, String password, String navn) {
         super(email, password, navn);
     }
 
-    public void addArrangement(Arrangement arrangement){
+    public void addArrangement(Arrangement arrangement) {
         arrangementListe.add(arrangement);
     }
 
