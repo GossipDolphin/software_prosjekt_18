@@ -96,4 +96,16 @@ public abstract class Bruker implements Serializable {
         }
         return null;
     }
+
+    public static Bruker registrerBruker(String bruker, String password, String fornavn, String etternavn, String navn){
+        Bruker temp = null;
+
+        if(navn != null) {
+            temp = new Organiser(bruker, password, navn);
+        }
+        if(fornavn != null && etternavn!=null) {
+            temp = new Deltager(bruker, password, fornavn, etternavn);
+        }
+        return temp;
+    }
 }
