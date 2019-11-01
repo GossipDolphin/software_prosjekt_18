@@ -24,6 +24,13 @@ public class BrukerTest {
         assertNotEquals(deltager, (Bruker.login("sjekk@gmail.com", "adminnn")));
         assertNull(Bruker.login("sjekk@hotmail.com", "admin"));
     }
+
+    @Test
+    void finner_riktig_deltaker_ved_login() {
+        Deltager dummyDeltager = new Deltager("brekk@gmail.com", "admin", "sjekk", "skjekk");
+        assertEquals(dummyDeltager, Bruker.finnBruker("brekk@gmail.com"));
+    }
+
     // krav nr 1.
     @Test
     public void registrer_bruker_som_deltager(){
