@@ -21,13 +21,25 @@ public class BrukerTest {
     public void Sjekk_login(){
         Deltager deltager = new Deltager("sjekk@gmail.com", "admin", "sjekk", "sjekk");
         assertEquals(deltager, Bruker.login("sjekk@gmail.com", "admin"));
-        assertNotEquals(deltager, (Bruker.login("sjekk@gmail.com", "adminnn")));
+
     }
 
     @Test
-    void finner_riktig_deltaker_ved_login() {
+    void finner_riktig_bruker_ved_login() {
         Deltager dummyDeltager = new Deltager("brekk@gmail.com", "admin", "sjekk", "skjekk");
+        Organiser organiser = new Organiser("organiser@email.com", "passord1", "Telenor");
+
         assertEquals(dummyDeltager, Bruker.finnBruker("brekk@gmail.com"));
+        assertEquals(organiser, Bruker.finnBruker("organiser@email.com"));
+    }
+
+    @Test
+    void Skal_ikke_logge_inn_bruker_ved_feil_passord() {
+        Deltager deltager = new Deltager("sjekk@gmail.com", "admin", "sjekk", "sjekk");
+        Organiser organiser = new Organiser("organiser@email.com", "passord1", "Telenor");
+
+        assertNotEquals(deltager, (Bruker.login("sjekk@gmail.com", "FeilPassord")));
+        assertNotEquals(organiser, (Bruker.login("organiser@email.com", "FeilPassord")));
     }
 
     @Test
