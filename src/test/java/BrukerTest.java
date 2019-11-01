@@ -22,13 +22,17 @@ public class BrukerTest {
         Deltager deltager = new Deltager("sjekk@gmail.com", "admin", "sjekk", "sjekk");
         assertEquals(deltager, Bruker.login("sjekk@gmail.com", "admin"));
         assertNotEquals(deltager, (Bruker.login("sjekk@gmail.com", "adminnn")));
-        assertNull(Bruker.login("sjekk@hotmail.com", "admin"));
     }
 
     @Test
     void finner_riktig_deltaker_ved_login() {
         Deltager dummyDeltager = new Deltager("brekk@gmail.com", "admin", "sjekk", "skjekk");
         assertEquals(dummyDeltager, Bruker.finnBruker("brekk@gmail.com"));
+    }
+
+    @Test
+    void bruker_som_ikke_finnes_logges_ikke_inn() {
+        assertNull(Bruker.login("DenneBrukerenFinnesIkke@hotmail.com", "admin"));
     }
 
     // krav nr 1.
