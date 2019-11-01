@@ -76,25 +76,8 @@ public abstract class Bruker implements Serializable {
     }
 
     public static Bruker login(String email, String password) {
-        Bruker temp = null;
-        for (int i = 0; i < alleBrukere.size(); i++) {
-            if (email.equals(alleBrukere.get(i).getEmail())) {
-                temp = alleBrukere.get(i);
-            }
-        }
-        try {
-            String test1 = hashPassword(password, temp.getSalt());
-            String test2 = temp.getPassword();
-
-            if (test1.equals(test2)) {
-                return temp;
-            } else {
-                return null;
-            }
-        } catch (NullPointerException e) {
-            System.out.println(e);
-        }
-        return null;
+        Bruker bruker = Bruker.finnBruker(email);
+        return Bruker.sjekkPassord(password, bruker);
     }
 
     public static Bruker registrerBruker(String bruker, String password, String fornavn, String etternavn, String navn){
@@ -107,5 +90,31 @@ public abstract class Bruker implements Serializable {
             temp = new Deltager(bruker, password, fornavn, etternavn);
         }
         return temp;
+    }
+
+    public static Bruker finnBruker(String email){
+        Bruker temp = null;
+        for (int i = 0; i < alleBrukere.size(); i++) {
+            if (email.equals(alleBrukere.get(i).getEmail())) {
+                temp = alleBrukere.get(i);
+            }
+        }
+        return temp;
+    }
+
+    public static Bruker sjekkPassord(String password, Bruker bruker){
+        try {
+            String test1 = hashPassword(password, bruker.getSalt());
+            String test2 = bruker.getPassword();
+
+            if (test1.equals(test2)) {
+                return bruker;
+            } else {
+                return null;
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+        return null;
     }
 }

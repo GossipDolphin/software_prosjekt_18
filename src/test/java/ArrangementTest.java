@@ -36,7 +36,7 @@ public class ArrangementTest {
         int id = arrangement.getId();
         assertEquals(arrangement, Arrangement.getArrangementById(id));
     }
-
+    // krav 8.
     @Test
     void liste_med_race_kan_hentes() {
 

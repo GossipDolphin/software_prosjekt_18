@@ -26,21 +26,21 @@ public class Deltagertest {
     private Arrangement arrangement2 = new Arrangement("testarrangement", "testing", tid, tid,"halden", organiser);
     private Deltager Kalle = new Deltager("Kalle@hotmail.com", "admin", "Kalle", "Kalleson");
 
-
+    // krav 5. ved påmelding til løp vil du bli lagt til i arrangementet som holde løpet
     @Test
     public void legg_meg_til_i_arragement(){
         Kalle.joinArrangement(arrangement);
         assertTrue(arrangement.getDeltagerList().contains(Kalle));
         assertTrue(Kalle.getArrangementListe().contains(arrangement));
     }
-
+    // krav 5.
     @Test
     public void meld_meg_paa_race_i_arrangement(){
         Race race = new Race("Kan du løpe fortere en hunden min?","dankestrace", tid, tid,arrangement);
         Kalle.joinRace(race);
         assertTrue(race.getDeltagere().contains(Kalle));
     }
-
+    // krav 3.
     @Test
     public void hent_de_race_jeg_er_med_i(){
         Deltager petter = new Deltager("Petter@hotmail.com", "admin", "Petter", "Petterson");
@@ -75,6 +75,7 @@ public class Deltagertest {
     private Race race2 = new Race("løpløp2", "test av løp2", tid,tid,arrangement2);
     private Deltager petter = new Deltager("Test@gamil.com", "admin1", "petter", "Normann");
 
+    //Krav 10.
     @Test
     public void hent_alle_resultater_til_race_jeg_er_med_i(){
 

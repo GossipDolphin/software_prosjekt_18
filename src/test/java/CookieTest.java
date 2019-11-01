@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @Test
 public class CookieTest {
 
+    //brukes til mange krav, eksempel krav 3.
     @Test
     public void get_Bruker_Cookie() throws Exception{
         Deltager kalle = new Deltager("kalle@gmail.com", "admin", "kalle", "kalleson");
@@ -16,7 +17,7 @@ public class CookieTest {
 
         assertTrue(cookieUtility.BrukerCookie(kalle) instanceof Cookie);
     }
-
+    // brukes i mange krav, eksempel krav 3.
     @Test
     public void sjekk_cookie() throws Exception{
         Deltager kalle = new Deltager("kalle@gmail.com", "admin", "kalle", "kalleson");

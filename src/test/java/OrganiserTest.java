@@ -18,7 +18,7 @@ public class OrganiserTest {
     private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
     private Arrangement arrangement = new Arrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser);
 
-
+    // krav 7.
     @Test
     public void test_legg_til_arrangement_i_listen() {
         organiser.addArrangement(arrangement);
@@ -29,6 +29,7 @@ public class OrganiserTest {
     private Deltager petter = new Deltager("petter@gmail.com", "admin", "petter", "petterson");
     private Race dummyRace = new Race("race for the stuff","løp som bare faen rundt om kring", tid, tid,arrangement);
 
+    // krav 11.
     @Test
     public void legg_til_resultat_i_race(){
         petter.joinRace(dummyRace);
