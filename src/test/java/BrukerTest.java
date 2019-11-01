@@ -16,14 +16,8 @@ public class BrukerTest {
         String testpwd = deltager.hashPassword(password, deltager.getSalt());
         assertEquals(testpwd,deltager.getPassword());
     }
+
     // krav nr 2.
-    @Test
-    public void Sjekk_login(){
-        Deltager deltager = new Deltager("sjekk@gmail.com", "admin", "sjekk", "sjekk");
-        assertEquals(deltager, Bruker.login("sjekk@gmail.com", "admin"));
-
-    }
-
     @Test
     void finner_riktig_bruker_ved_login() {
         Deltager dummyDeltager = new Deltager("brekk@gmail.com", "admin", "sjekk", "skjekk");
