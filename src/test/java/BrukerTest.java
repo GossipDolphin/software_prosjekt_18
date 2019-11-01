@@ -28,7 +28,7 @@ public class BrukerTest {
     }
 
     @Test
-    void Skal_ikke_logge_inn_bruker_ved_feil_passord() {
+    void logger_ikke_inn_bruker_med_feil_passord() {
         Deltager deltager = new Deltager("sjekk@gmail.com", "admin", "sjekk", "sjekk");
         Organiser organiser = new Organiser("organiser@email.com", "passord1", "Telenor");
 
