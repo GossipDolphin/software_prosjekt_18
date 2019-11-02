@@ -10,8 +10,6 @@ public class Deltager extends Bruker implements Serializable {
     private String etternavn;
     private ArrayList<Race> races = new ArrayList<>();
     private ArrayList<Arrangement> arrangementListe = new ArrayList<>();
-
-
     private HashMap<Race, LocalDateTime> resultatMap = new HashMap<>();
 
     public Deltager(String email, String password, String navn_f, String navn_e) {
@@ -33,7 +31,6 @@ public class Deltager extends Bruker implements Serializable {
         this.arrangementListe = arrangementListe;
     }
 
-
     public void joinRace(Race race) {
         if (!race.getDeltagere().contains(this)) {
             race.getDeltagere().add(this);
@@ -44,7 +41,6 @@ public class Deltager extends Bruker implements Serializable {
     public ArrayList<Race> getRaces() {
         return races;
     }
-
 
     public String getNavn_f() {
         return fornavn;
@@ -57,16 +53,5 @@ public class Deltager extends Bruker implements Serializable {
     public HashMap<Race, LocalDateTime> getResultatMap() {
         return resultatMap;
     }
-
-/*    public ArrayList<HashMap> hentResultateneForMineRace() {
-        ArrayList<HashMap> listeMedResultater = new ArrayList<>();
-        for(Arrangement arrangement : this.getArrangementListe()){
-            for(Race race : arrangement.getRaceList()){
-                listeMedResultater.add(race.getResultatMap());
-            }
-        }
-        return listeMedResultater;
-    }*/
-
 
 }
