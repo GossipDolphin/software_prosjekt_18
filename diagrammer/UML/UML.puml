@@ -3,13 +3,14 @@
 class Bruker {
  - navn
  - email
- - passord
- + field2
- method1()
- {static} method2()
+ - password
+ + salt
+ {static}hashPassword()
+ {static} finnBruker(email:String)
+ {static} sjekkPassord(password:String, bruker:Bruker)
 }
 
-class Flight {
+class Arrangement {
    flightNumber : Integer
    departureTime : Date
    {static} numberOfFlights : int
