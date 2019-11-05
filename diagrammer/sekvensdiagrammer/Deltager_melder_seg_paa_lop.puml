@@ -1,0 +1,17 @@
+@startuml
+partition Bruker {
+(*) --> "trykker på arrangement"
+"trykker på arrangement" --> "Trykker på løp"
+--> "Trykker på meld meg på"
+}
+if "Bruker er av typen deltager" then
+partition Deltager {
+  -->[true] "Bruker meldt på"
+}
+else
+partition Uregistrert {
+  ->[false] "Bruker sendt til registrering"
+  -->[Ending process] (*)
+  }
+endif
+@enduml

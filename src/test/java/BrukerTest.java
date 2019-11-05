@@ -26,7 +26,7 @@ public class BrukerTest {
         assertEquals(dummyDeltager, Bruker.finnBruker("brekk@gmail.com"));
         assertEquals(organiser, Bruker.finnBruker("organiser@email.com"));
     }
-
+    // krav nr 2
     @Test
     void logger_ikke_inn_bruker_med_feil_passord() {
         Deltager deltager = new Deltager("sjekk@gmail.com", "admin", "sjekk", "sjekk");
@@ -35,7 +35,7 @@ public class BrukerTest {
         assertNotEquals(deltager, (Bruker.login("sjekk@gmail.com", "FeilPassord")));
         assertNotEquals(organiser, (Bruker.login("organiser@email.com", "FeilPassord")));
     }
-
+    // krav nr 2
     @Test
     void bruker_som_ikke_finnes_logges_ikke_inn() {
         assertNull(Bruker.login("DenneBrukerenFinnesIkke@hotmail.com", "admin"));

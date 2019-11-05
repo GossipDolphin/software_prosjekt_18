@@ -1,0 +1,10 @@
+@startuml
+Deltager -> Registrering_skjema: fyller ut
+Registrering_skjema --> Registrering_skjema: Validering
+alt Gyldig validering
+Registrering_skjema -> Data_lagring: lagrer
+Data_lagring --> Deltager: Registrering velykket
+else U-gyldig validering
+Registrering_skjema -> Deltager: Ugyldig input
+end
+@enduml
