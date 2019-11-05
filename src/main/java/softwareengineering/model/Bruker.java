@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Bruker implements Serializable {
+public abstract class Bruker
+{
 
     private String email;
     private String password;

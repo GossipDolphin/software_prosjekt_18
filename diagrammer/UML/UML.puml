@@ -1,22 +1,71 @@
 
 @startuml
-class Bruker {
- - navn
- - email
- - password
- + salt
- {static}hashPassword()
- {static} finnBruker(email:String)
- {static} sjekkPassord(password:String, bruker:Bruker)
+abstract class Bruker {
+ + {static}alleBrukere : Bruker
+ - navn: String
+ - email: String
+ - password: String
+ - salt: byte[]
+ {static}hashPassword(password:String, salt:byte[]) : String
+ {static} finnBruker(email:String) : Bruker
+ {static} sjekkPassord(password:String, bruker:Bruker) : Bruker
+ {static} login(password:String, email:String}
 }
 
 class Arrangement {
-   flightNumber : Integer
-   departureTime : Date
-   {static} numberOfFlights : int
+    + {static}alleArrangement: Arrangement
+    - {static}idTeller : int
+    - id : int
+   - navn : String
+   - beskrivelse : String
+   - startDate : LocalDateTime
+   - sluttDate : LocalDateTime
+   - lokasjon : String
+   - organiser : Organiser
+   + raceList : ArrayList<Race>
+   + deltagere : ArrayList<Deltager>
+
+   {static} getArrangementById(id:int) : Arrangement
+   updateDeltagerList() : void
 }
 
+class Deltager {
+    - fornavn: String
+    - etternavn: String
+    - races: ArrayList<Race>
+    - arrangementListe: ArrayList<Arrangement>
+    - resultatMap: HashMap<Race,LocalDateTime>
+}
 
-Dummy <|-- Flight
+class Organiser{
+    - arrangementListe : ArrayList<Arrangement>
+    - addArrangement(arrangement: Arrangement) : void
+    - leggTilResultatTilRace :
+}
+
+class Race{
+    + {static}alleRace : List<Race>
+    - arrangement : Arrangement
+    - raceNavn : String
+    - raceBeskrivelse : String
+    - raceStart : LocalDateTime
+    - raceSlutt : LocalDateTime
+    - deltagere : ArrayList<Deltager>
+    - resultatMap : HashMap<Deltager, LocalDateTime>
+    {static} getRaceById(int id) : Race
+}
+Bruker <|-- Deltager
+Bruker <|-- Organiser
+Organiser *-- Arrangement
+Deltager o-- Arrangement
+Arrangement o-- Deltager
+
+Race o-- Arrangement
+Arrangement *-- Race
+Deltager o-- Race
+Race o-- Deltager
+Arrangement o-- Organiser
+
+
 
 @enduml
