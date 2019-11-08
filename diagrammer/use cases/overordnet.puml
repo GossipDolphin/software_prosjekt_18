@@ -1,28 +1,30 @@
 @startuml
 left to right direction
 
-rectangle Brukertyper{
+:Uregistrert bruker: as Uregistrert
+
+rectangle "Brukertyper i systemet"{
 
     :Deltaker:
     :Arrangør:
     :Admin:
-    :Uregistrert bruker: as Uregistrert
 
 }
 
-Admin --- (Finne Arrangementer)
-Arrangør --- (Finne Arrangementer)
-Deltaker --- (Finne Arrangementer)
-Uregistrert --- (Finne Arrangementer)
+Admin -- (Finne Arrangementer)
+Arrangør -- (Finne Arrangementer)
+Deltaker -- (Finne Arrangementer)
+Uregistrert -- (Finne Arrangementer)
+
+(Redigere/slette innhold) -up- Admin
 
 (Redigere brukerkonto) -- Deltaker
 (Redigere brukerkonto) -- Arrangør
-(Redigere brukerkonto) -- Admin
 (Opprette brukerkonto) -- Uregistrert
 
-(Logge inn) --- Deltaker
-(Logge inn) --- Arrangør
-(Logge inn) --- Admin
+(Logge inn) -- Deltaker
+(Logge inn) -- Arrangør
+(Logge inn) -- Admin
 
 (Melde seg på arrangementer) -- Deltaker
 
