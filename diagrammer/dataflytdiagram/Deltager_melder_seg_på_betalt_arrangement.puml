@@ -1,0 +1,20 @@
+@startuml
+digraph foo {
+    node[shape=record]
+  	loginctrl [label="{<f0> Login|<f1> Skriv inn og verifiser login informasjon}" shape=Mrecord];
+  	deltager [label="Deltager" shape=box];
+  	deltager-> loginctrl:f0 [label="Skriver inn brukernavn/passord"];
+  		brukerdatabase [label="<f0> Database|<f1> Bruker tabell"];
+  	loginctrl:f1->brukerdatabase [label="Login info sjekkes mot database info"]
+  	brukerdatabase->joinPaid [label="Velykket inlogging"]
+  	joinPaid [label="{<f0> Melder seg på betalt arrangement|<f1> Ta kortinformasjon}" shape=Mrecord];
+  	brukerdatabase->loginctrl [label="Feil brukernavn/passord, tilbake til login"]
+  	BankAxxept [label="{<f0> BankAxxept API|<f1> Prossesser betalingsinformasjon}" shape=Mrecord];
+    joinPaid->BankAxxept
+    BankAxxept -> arrangementdatabase [label="Velykket betaling"]
+    arrangementdatabase [label="<f0> Database|<f1> Arrangement |<f2>Bruker lagt til i deltager tabell"];
+    BankAxxept -> joinPaid:f0 [label="Mislykket betaling, skriv kortinformasjon på nytt"]
+    arrangementdatabase->Arrangementside
+    Arrangementside [label="{<f0> Arrangementside|<f1>Bruker vises påmeldt arrangementet}"]
+}
+@enduml

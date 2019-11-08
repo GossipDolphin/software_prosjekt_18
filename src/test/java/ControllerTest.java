@@ -52,5 +52,8 @@ public class ControllerTest {
         String tempBruker = "webtest@test.com";
         mockMvc.perform(get("/signup"))
                 .andExpect(status().isOk());
+       // .param("bruker", tempBruker)
+         //       .param("navn",  "Halden skiforbund"))
+
     }
 }
