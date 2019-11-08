@@ -24,7 +24,7 @@ public class SignupController {
             String fornavn,@RequestParam(value = "etternavn", required = false) String etternavn, HttpServletResponse response, Model model) throws Exception {
 
         try {
-           Bruker temp = Bruker.registrerBruker(bruker, password, fornavn, etternavn, navn);
+           Bruker temp = Bruker.registrerBruker(bruker.toLowerCase(), password, fornavn, etternavn, navn);
             if(temp != null) {
                 response.addCookie(bcu.BrukerCookie(temp));
             }

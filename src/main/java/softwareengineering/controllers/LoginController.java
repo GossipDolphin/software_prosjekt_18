@@ -24,7 +24,7 @@ public class LoginController {
     @RequestMapping(value = "/login")
     public RedirectView loginInput(@RequestParam("bruker") String bruker, @RequestParam("password") String password, HttpServletResponse response, Model model, final RedirectAttributes redirectAttributes) throws IOException {
         try {
-            Bruker temp = Bruker.login(bruker, password);
+            Bruker temp = Bruker.login(bruker.toLowerCase(), password);
             if (temp != null) {
                 response.addCookie(bcu.BrukerCookie(temp));
             }
