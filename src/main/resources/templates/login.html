@@ -23,6 +23,16 @@
                 document.login.submit();
             }
         }
+
+        function fyllInfoDeltager() {
+            document.getElementById("bruker").value="petter@gmail.com";
+            document.getElementById("password").value="test2";
+        }
+
+        function fyllInfoOrganiser() {
+            document.getElementById("bruker").value="ola@gmail.com";
+            document.getElementById("password").value="test1";
+        }
     </script>
 </head>
 <body>
@@ -43,8 +53,9 @@
         <li>Password</li><li><input type="password" name="password" id="password">
         <li><input id="loginKnapp" type="button" onclick="sjekkLogin()" value="login"></li>
     </li>
-
     </ul>
 </form>
+<button id="deltagerLogin" onclick="fyllInfoDeltager()">Logg in som deltager</button>
+<button id="organiserLogin" onclick="fyllInfoOrganiser()">Logg in som arrangør</button>
 </body>
 </html>
