@@ -7,16 +7,16 @@ rectangle "Brukertyper i systemet"{
 
     :Deltaker:
     :Arrangør:
-    :Admin:
+    :Moderator:
 
 }
 
-Admin -- (Finne Arrangementer)
-Arrangør -- (Finne Arrangementer)
-Deltaker -- (Finne Arrangementer)
-Uregistrert -- (Finne Arrangementer)
+Moderator -- (Finne arrangementer)
+Arrangør -- (Finne arrangementer)
+Deltaker -- (Finne arrangementer)
+Uregistrert -- (Finne arrangementer)
 
-(Redigere/slette innhold) -up- Admin
+(Redigere/slette innhold) -up- Moderator
 
 (Redigere brukerkonto) -- Deltaker
 (Redigere brukerkonto) -- Arrangør
@@ -24,7 +24,7 @@ Uregistrert -- (Finne Arrangementer)
 
 (Logge inn) -- Deltaker
 (Logge inn) -- Arrangør
-(Logge inn) -- Admin
+(Logge inn) -- Moderator
 
 (Melde seg på arrangementer) -- Deltaker
 
