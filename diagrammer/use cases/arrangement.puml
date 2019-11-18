@@ -5,43 +5,25 @@ skinparam packageStyle rectangle
 :Arrangør:
 :Deltaker:
 :Uregistrert bruker: as Uregistrert
-rectangle softwareengineering.model.Arrangement {
+rectangle Arrangement {
+
+Arrangør -- (Opprette løp)
 
 Arrangør -- (Redigere løp)
-Arrangør -- (Opprette løp)
+
 Arrangør -- (Redigere detaljer/info)
-Arrangør -- (Se navn på arrangement)
-Arrangør -- (Se arrangør)
-Arrangør -- (Se beskrivelse)
-Arrangør -- (Se tidspunkt)
+
+Arrangør -- (Se offentlig info om arrangementet)
+(Se offentlig info om arrangementet) -- Deltaker
+(Se offentlig info om arrangementet) -- Uregistrert
+
+Arrangør -- (Trykke på hvert løp for å se info om løpet)
+(Trykke på hvert løp for å se info om løpet) -- Deltaker
+(Trykke på hvert løp for å se info om løpet) -- Uregistrert
+
 Arrangør -- (Se påmeldte deltakere)
-Arrangør -- (Se lokasjon)
-Arrangør -- (Invitere Deltakere)
-Arrangør -- (Se alle arrangementes løp)
-
-(Se navn på arrangement) -- Deltaker
-(Se navn på arrangement) --- Uregistrert
-
-(Se arrangør) -- Deltaker
-(Se arrangør) --- Uregistrert
-
-(Se beskrivelse) -- Deltaker
-(Se beskrivelse) -- Uregistrert
-
-(Se tidspunkt) -- Deltaker
-(Se tidspunkt) --- Uregistrert
-
-
-(Se lokasjon) -- Deltaker
-(Se lokasjon) --- Uregistrert
-
-
-(Se alle arrangementes løp) -- Deltaker
-(Se alle arrangementes løp) --- Uregistrert
-
-
-(Invitere Deltakere) -- Deltaker
 (Se påmeldte deltakere) -- Deltaker
+
 (Melde seg på løp) -- Deltaker
 
 }
