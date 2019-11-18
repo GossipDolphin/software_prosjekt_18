@@ -1,0 +1,39 @@
+@startuml
+
+actor Bruker
+
+Bruker -> Frontend: Forespør å bli arrangør
+Frontend -> Bruker: Leverer utfyllingsskjema
+Bruker -> Frontend: Leverer etterspurt informasjon
+Frontend -> Backend: Forespør registrering
+Backend -> Backend: Kontrollerer input
+alt Input er gyldig
+    Backend -> Backend: Sjekker om brukeren allerede er registrert
+    alt Brukeren finnes ikke i systemet
+        Backend -> BankID: Forespør innloggingsportal
+        activate BankID
+        BankID -> Bruker: Sender innloggingsportal
+        Bruker -> BankID: Leverer innloggingsinfo (logger inn)
+        BankID -> BankID: Verifiserer person
+        BankID --> Backend: Person verifisert
+        deactivate BankID
+        Backend -> Backend: Sjekker person mot organisasjon
+            alt brukeren har en godkjent organisasjon
+                Backend -> Backend: Oppretter arrangør
+                Backend --> Frontend: Arrangør opprettet
+                Frontend --> Bruker: Registrering fullført
+            else Brukeren har ikke en gyldig organisjasjon
+                Backend --> Frontend: Ikke godkjent organisasjon
+                Frontend -> Bruker: Beskjed om mangel på godkjent organisjasjon
+            end
+    else Brukeren finnes allerede i systemet
+        Backend --> Frontend: Bruker er allerede registrert
+        Frontend --> Bruker: Gir beskjed om at bruker allerede er registrert
+    end
+else Input er ikke gyldig
+    Backend --> Frontend: Beskjed om feil input
+    Frontend --> Bruker: Gir beskjed om feil input
+    Frontend -> Bruker: Leverer skjemaet bestående av brukerens gyldige inputs
+end
+
+@enduml
