@@ -1,0 +1,15 @@
+@startuml
+(*)  --> "Arrangør legger til resultat for deltager"
+--> Arrangør trykker for å publisere resultatliste
+
+If "Alle påmeldte deltagere har registrert tid eller er markert som "ikke deltatt"" then
+--> [Ja] "Resultater publiseres"
+-->(*)
+
+else
+--> [Nei] "Bruker får beskjed om manglende resultater"
+--> "Arrangør legger til resultat for deltager"
+
+Endif
+
+@enduml
