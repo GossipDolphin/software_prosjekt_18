@@ -7,7 +7,8 @@ If "Alle påmeldte deltagere har registrert tid eller er markert som "ikke delta
 -->(*)
 
 else
---> [Nei] "Arrangør legger til resultat for deltager"
+--> [Nei] "Gir bruker beskjed om manglende resultater"
+--> "Arrangør legger til resultat for deltager"
 
 Endif
 
