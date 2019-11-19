@@ -7,11 +7,13 @@ partition Bruker {
 if "Bruker er av typen deltager" then
 partition Deltager {
   -->[true] "Bruker meldt på"
+  -->[avslutter process] (*)
 }
 else
 partition Uregistrert {
   ->[false] "Bruker sendt til registrering"
-  -->[Ending process] (*)
+  --> "bruker fyller ut og sender inn registreringskjema"
+  --> "Bruker meldt på"
   }
 endif
 @enduml
