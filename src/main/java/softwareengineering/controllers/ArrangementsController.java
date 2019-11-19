@@ -62,6 +62,9 @@ public class ArrangementsController {
         Arrangement arrangementet = Arrangement.getArrangementById(parsedId);
         Bruker user = BrukerCookieUtility.opprettBrukerFraCookie(request);
 
+        if (user!= arrangementet.getOrganiser()){
+            return new RedirectView("/kreverorganiser");
+        }
         if (user.equals(arrangementet.getOrganiser())) {
             Race race = new Race(navn, beskrivelse, startTidParsed, sluttTidParsed, arrangementet);
             return new RedirectView("/arrangementer/{id}");
