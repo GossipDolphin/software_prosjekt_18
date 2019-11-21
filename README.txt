@@ -16,4 +16,5 @@ Av brukertypene:
 Arrangør: ola@gmail.com passord: test1.
 Deltager: petter@gmail.com passord: test2.
 Det ligger knapper for å logge inn som begge disse to brukerne på innloggingssiden. samt to dummy arrangement med dummy løp som tilhører ola@gmail.com.
-Det ligger i tillegg ferdig utfylt informasjon i registreringsskjema for både deltaker og arrangør. Dette kan byttes ut hvis bruker av prototypen ønsker egen profil.
+Det ligger i tillegg ferdig utfylt informasjon i registreringsskjema for både deltaker og arrangør.
+Dette kan byttes ut hvis bruker av prototypen ønsker egen profil.

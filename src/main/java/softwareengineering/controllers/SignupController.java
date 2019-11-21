@@ -32,6 +32,6 @@ public class SignupController {
         catch (NullPointerException e){
             System.out.println(e.toString());
         }
-        return new RedirectView("arrangementer");
+        return new RedirectView("");
     }
 }

@@ -35,7 +35,7 @@ public class LoginController {
         catch (Exception e){
             return new RedirectView("loginfeilet");
         }
-            return new RedirectView("arrangementer");
+            return new RedirectView("");
 
     }
 }
