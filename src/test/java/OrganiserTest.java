@@ -18,7 +18,7 @@ public class OrganiserTest {
     private LocalDateTime tid = LocalDateTime.parse(randomTid, formatter);
     private Arrangement arrangement = new Arrangement("KekLøpForAlle","dankestrace", LocalDateTime.parse(randomTid, formatter), LocalDateTime.parse(randomTid, formatter), "Halden", organiser);
 
-    // krav 7.
+    // krav 6.
     @Test
     public void test_legg_til_arrangement_i_listen() {
         organiser.addArrangement(arrangement);
